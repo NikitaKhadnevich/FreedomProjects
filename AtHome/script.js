@@ -1,3 +1,32 @@
+numbers = [25 , 11, 87, 78, 'smile' , 99, 100]
+let largest = numbers[0];
+let smallest = numbers[0];
+for (let i = 0; i < numbers.length; i++){
+    let temp = numbers[i];
+    if (temp > largest)
+    {
+        largest = numbers[i];
+    }
+    if (temp < smallest)
+    {
+        smallest = numbers[i];
+    }
+}
+alert(largest);
+alert(smallest);
+
+
+let x = prompt("x?", '');
+let r = prompt("r?", '');
+ 	if (x % r == 0) {
+ 		alert ('Точно');
+ 	}	
+ 	else {
+ 		alert ('Ошибка');
+ 	}
+
+
+
 // let year = prompt ("В каком году появился атмоскрипт?", "");
 // if (year < 2015) {
 // 	alert( 'рановато' );
@@ -145,46 +174,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-numbers = [25 , 11, 87, 78, 'smile' , 99, 100]
-let largest = numbers[0];
-let smallest = numbers[0];
-for (let i = 0; i < numbers.length; i++){
-    let temp = numbers[i];
-    if (temp > largest)
-    {
-        largest = numbers[i];
-    }
-    if (temp < smallest)
-    {
-        smallest = numbers[i];
-    }
-}
-alert(largest);
-alert(smallest);
-
-
-let x = prompt("x?", '');
-let r = prompt("r?", '');
- 	if (x % r == 0) {
- 		alert ('Точно');
- 	}	
- 	else {
- 		alert ('Ошибка');
- 	}
 
 
 // function pow(x, n) {
