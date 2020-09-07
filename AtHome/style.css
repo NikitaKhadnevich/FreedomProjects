@@ -1,5 +1,32 @@
 .somediv {
-	width: 50px;
-	height: 50px;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
 	background: tomato;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+menu {
+	display: flex;
+	width: 60%;
+	height: 60%;
+	background: white;
+	opacity: 0.5;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+}
+
+ul {
+	border: 1px solid black;
+	position: relative;
+	padding: 0;
+	margin: 0 auto;
+}
+
+li {
+	text-decoration: none;
+	
 }
