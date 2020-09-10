@@ -1,12 +1,108 @@
-let massiver = [4, 2, 5, 19, 13, 0, 10]
-console.log(massiver.length)
+ 
+// Первое задание 
 
-let massiver = a
-let massiver = b
+for (let i = 0; i < 100; i++) {
+	console.log (i)
 
-let x = (a,b) => 
- 	a * b;
- 	alert (x)
+if ((i % 3 == 0) && (i % 5 == 0)) {
+	console.log ('FizzBuss');
+}
+else if (i % 3 == 0) {
+	console.log ('Fizz');
+}
+else if (i % 5 == 0) {
+	console.log ('Buzz');
+}
+}
+
+for (let i = 0; i < 100; i++) {
+		console.log (i)
+
+let menshe = 
+(i % 3 == 0) && (i % 5 == 0) ? 'FizzBuss' : 
+(i % 3 == 0) ? 'Fizz' : 
+(i % 5 == 0) ? 'Buzz' : null;
+	console.log (menshe)
+}
+
+// Второе задание
+
+
+let story = 'Лето удалось очень жарким, было много ягод и фруктов, лучшим местом для отдыха была речка'; 
+let newstor = story.replace(/,/gi, ' ,')
+console.log (newstor)  // отделяю запятые..
+
+let arr = newstor.split(' ');
+console.log(arr);
+arr.indexOf(',') //нахожу номер объекта//
+
+let words = (arr[(arr.indexOf(',')) - 1]);
+console.log (words) //нахожу номер объекта до запятой
+
+let x = function reverseStr(str) {
+    return str.split("").reverse().join("");
+}
+console.log(x(words)); // реверс для заглавного символа
+
+let y = function ucFirst(str) {
+  if (!str) return str;
+  return str[0].toUpperCase() + str.slice(1);
+} // Прописная буква
+
+let z = y(x(words));
+console.log(z);
+
+function reverseStr(str) {
+    return str.split("").reverse().join("");
+}
+console.log(reverseStr(z))
+ // обратный реверс
+
+arr[3] = (reverseStr(z)) // Присвоение
+console.log(arr)
+
+story = arr.join(' ');
+console.log(story) // перевод с строку
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let massiver = [4, 2, 5, 19, 13, 0, 10]
+// console.log(massiver.length)
+
+// let massiver = a
+// let massiver = b
+
+// let x = (a,b) => 
+//  	a * b;
+
+// alert (x)
+
 
 
 
