@@ -64,6 +64,30 @@ console.log(arr)
 story = arr.join(' ');
 console.log(story) // перевод с строку
 
+// Третье задание
+
+let someNews = "Антон, Дима и Женя пришли на День рождения сразу, а Миша пришел позже"
+let anyNews = someNews.replace(/,/gi, ' ,')
+newBlock = anyNews.split(' ');
+console.log(newBlock)
+
+let newMas = newBlock.slice(6,9);
+newMas[3] = newBlock [5]
+newMas[4] = ':'
+newMas[5] = newBlock [0]
+newMas[6] = newBlock [1]
+newMas[7] = newBlock [2]
+newMas[8] = newBlock [1]
+newMas [9] = newBlock [4]
+newMas[10] = newBlock [1]
+newMas [11] = newBlock [12]
+
+newMasString = newMas.join(' ');
+console.log (newMasString)
+
+
+
+
 
 
 
