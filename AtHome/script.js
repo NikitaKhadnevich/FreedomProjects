@@ -25,6 +25,20 @@ let menshe =
 	console.log (menshe)
 }
 
+// for (let i = 0; i < 100; i++) {
+
+// let x = (i % 3 == 0) && (i % 5 == 0); 
+// let y = (i % 3 == 0);
+// let z = (i % 5 == 0);
+
+// let menshe = x ? "fizzbuzz" :
+//             y ?  "fizz" :
+//             z ? "buzz" : i;
+// 	console.log (menshe)
+
+
+
+
 // Второе задание
 
 

@@ -1,37 +1,79 @@
-// //1 block//
+// let  fruits = ['apple' , 'orange' , 'grapes' , 'banana']
+// let newArry [];
 
-// // let frstName = 'Andrey'
-// // const lastName = 'Ivanov'
-// // const age = 54
-// // const y = true
-// // console.log (y)
-// // let birthYear = 2020
-// // let xxx = 1
-// // xxx = 2020 - age
-// // console.log(xxx)
+// for (let i = 0; i < fruits.length; i++) {
+// 	console.log(i)
+// }
+// newArry[i] = fruits[i]
 
-// let frstName = 'Andrey'
-// const lastName = 'Ivanov'
-// const age = 54
-// let x = 1
+// console.log(newArry)
+// _______________________________________
 
-const BYN = 'Buying BYN to EUR 3.14/BYN to USD ';
-const EuR = 1;
-const USD = 2;
 
-let a = prompt 
- 		a('Привет, хотите узнать курсы?', 
-	 	'Какая первая валюта');
- 		if (a === 'BYN' || 'Белки') {
- 			alert (BYN);
+
+// let nums = [1, 2, 3, 4, 5, 6,];
+// let sum = 0;
+
+// let newNums = []
+
+// for (let i = 0; i < nums.length; i++) {
+// 	sum = sum + nums[i];
+// }
+// console.log(sum)
+
+// _______________________________________
+
+// const arr = [1, 2, 3, 4, 5];
+// const plice = arr.splice(0, 2, 111, 222, 333);
+// // откуда     на сколько и       что
+
+// console.log(arr, plice)
+
+// _______________________________________
+
+// function getRand () {	
+// 	const randoNumb = Math.random() * 10;
+// 	const roundNumb = Math.round(randoNumb);
+// 	return roundNumb
+// }
+//  console.log(getRand())
+
+//__________________________________________\
+
+// function getHello (name , callBack) {
+// 	if (callBack) {
+// 		callBack(`Привет + ?{name}`)
+// 	}
+// }
+// getHello (name)
+
+const arrss = [1, -50, 100]
+
+function max (arr) {
+	let max = 0;
+	for (let i = 0; max < arr.length; i++) {
+ 		if(arr[i] === max) {
+ 			max = arr[i]
  		}
- 		else if (a === USD || 'долл'){
- 			alert (USD);
- 		}
- 		else if (a === EUR || 'евро'){
- 			alert (EUR);
- 		}
- 		else (a != USD) {
- 			alert ('Ошибка');
- 		}
+	}
+return max;
+}
+
+console.log
+
+// _______________________________________
+
+for (key in obj) {
+	console.log(key + ':' obj[])
+}
+
+const keys = object.keys(obj)
+const values = object.keys(obj)
+
+const = Object.getOwnPropertyNames(obj)
+
+
+
+
+
 
