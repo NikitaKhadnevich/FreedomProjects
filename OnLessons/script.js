@@ -1,3 +1,40 @@
+function ff (num) {
+for (let i = 0; i <=num; i++) {
+ console.log(i);
+}
+}
+ff(100)
+
+/*Вызов всех чисел до 100*/
+
+
+function ff(num) {
+	if(num == 1) {
+		return num;
+	}
+  	console.log(num);
+  	ff(num - 1)
+}
+ff(100);
+
+/*рекурсия*/
+
+
+
+function sum() {
+  let count = 0;
+  return function (a) {
+    return count +=a;
+  }
+}  
+const res = sum()
+
+
+
+
+
+
+
 // let x = [1, 2, 3, 4, 5]
 // let sum = 0
 // for (let i = 0; i < x.length; i++) {
