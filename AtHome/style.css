@@ -3,30 +3,18 @@
 	height: 500px;
 	margin: 0 auto;
 	background: tomato;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: minmax(30px, auto);
+	align-self: center;
 	justify-content: center;
-	align-items: center;
-}
 
-menu {
-	display: flex;
-	width: 60%;
-	height: 60%;
-	background: white;
-	opacity: 0.5;
-	padding: 0;
-	margin: 0;
-	position: absolute;
 }
-
-ul {
-	border: 1px solid black;
-	position: relative;
-	padding: 0;
+.quar {
+	align-self: center;
+	justify-content: center;
 	margin: 0 auto;
-}
-
-li {
-	text-decoration: none;
-	
+	width: 150px;
+	height: 150px;
+	border: black 2px solid;
 }
