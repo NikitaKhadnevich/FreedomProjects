@@ -29,8 +29,9 @@ window.onload = function () {
 let areainput = document.getElementById('areainput'), /*Создаем Инпут*/
 button = document.getElementById('button'); /*Создаем кнопку*/
 let alerting = document.getElementById('alerting');  			
-let list = document.getElementById('list');  			/*Создаем UL*/
-let myLi = document.getElementsByClassName('.myLi')
+let list = document.getElementById('list');  
+ 		/*Создаем UL*/
+let myLi = document.getElementsByClassName('myLi')
 let newArray = []; 										/*Создаем Массив*/
 
 button.addEventListener('click', 
@@ -85,4 +86,6 @@ const handleOffMessage = function (e) {
    	}
 }
 list.addEventListener("mouseout", 	handleOffMessage);
+
+
 }

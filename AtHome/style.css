@@ -21,6 +21,12 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300&display=swap');
 
+.container  {
+	width: 80%;
+	margin: 0 auto;
+	background: 'gray';
+}
+
 .wrapper {
 	width: 75%;
 	height: 100%;
