@@ -1,4 +1,4 @@
-.somediv {
+/*.somediv {
 	width: 500px;
 	height: 500px;
 	margin: 0 auto;
@@ -7,7 +7,7 @@
 	grid-template-columns: repeat(3, 1fr);
 	grid-auto-rows: minmax(30px, auto);
 	align-self: center;
-	justify-content: center;
+	justify-content: space-between;
 
 }
 .quar {
@@ -18,3 +18,129 @@
 	height: 150px;
 	border: black 2px solid;
 }
+*/
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300&display=swap');
+
+.wrapper {
+	width: 75%;
+	height: 100%;
+	display: flex;
+	flex-direction: column-reverse;
+	outline: 1px solid pink;
+	opacity: 0.8;
+	margin: 0 auto;
+}
+
+.frst {
+	min-height: 85vh;
+	width: 100%;
+	outline: 2px solid black;
+	background: gray;
+	height: 80%;
+}
+
+#list {
+	padding: 0;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.second {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+	width: 100%;
+	background: #101010;
+	height: 15vh;
+	overflow: hidden;
+}
+
+.input {
+ 	margin: 0 auto;
+ 	width: 80%;
+ 	margin-bottom: 10px;
+}
+
+#areainput {
+	padding: 5px;
+	width: 100%;
+	height: 25px;
+	outline: 1px solid black;
+	border-radius: 15px;
+}
+
+.button {
+	width: 200px;
+	height: 30px;
+	margin: 0 auto;
+}
+
+#button{
+  height: 30px;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  background: #4676D7;
+  color: #fff;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+#button:hover{
+	  color: pink;
+}
+
+ol {
+	height: 100%;
+
+}
+
+
+ol li {
+	display: flex;
+	justify-content: space-between;
+	word-wrap: break-word;
+	list-style-type: none;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: white; 
+	padding: 3px;
+ 	margin: 5px;
+}
+
+ol li p{
+margin: 0 auto;
+}
+
+#delete {
+font-family: 'Epilogue', sans-serif;
+transition: 0.3s;
+float: right;}
+
+
+#delete:hover {
+	transition: 0.3s;
+	color: red;
+	font-size: 16px;
+	cursor: pointer;
+	font-size: 25px;
+}
+
+#alerting {
+	font-family: 'Epilogue', sans-serif;
+ 	position: fixed;
+	opacity: 0;
+	width: 250px;
+	border-radius: 15px;
+	background-color: white; 
+    color: red;
+    padding: 3px;
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    margin-top: 5px;
+    left: 36%;
+    transition: 0.4s;
+    border: 1px solid black;
+}
+
