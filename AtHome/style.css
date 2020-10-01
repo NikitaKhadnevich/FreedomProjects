@@ -19,13 +19,14 @@
 	border: black 2px solid;
 }
 */
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300&display=swap');*/
 
-.container  {
-	width: 80%;
-	margin: 0 auto;
-	background: 'gray';
+	
+.container {
+
 }
+
+
 
 .wrapper {
 	width: 75%;
@@ -48,7 +49,6 @@
 #list {
 	padding: 0;
 	margin: 0 auto;
-	margin-top: 50px;
 }
 
 .second {
@@ -101,7 +101,6 @@ ol {
 
 }
 
-
 ol li {
 	display: flex;
 	justify-content: space-between;
@@ -119,7 +118,7 @@ margin: 0 auto;
 }
 
 #delete {
-font-family: 'Epilogue', sans-serif;
+/*font-family: 'Epilogue', sans-serif;*/
 transition: 0.3s;
 float: right;}
 
@@ -132,21 +131,50 @@ float: right;}
 	font-size: 25px;
 }
 
+.obol {
+	width: 260px;
+	height: 30px;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: : 5px;	
+	direction: flex;
+	justify-content: center;
+	position: relative;
+}
+
 #alerting {
-	font-family: 'Epilogue', sans-serif;
+	height: 30px;
+	margin: 0 auto;
+	align-items: center;
+/*	font-family: 'Epilogue', sans-serif;*/
  	position: fixed;
 	opacity: 0;
-	width: 250px;
-	border-radius: 15px;
+	width: 260px;
+	border-radius: 10px;
 	background-color: white; 
     color: red;
-    padding: 3px;
     font-size: 25px;
     text-align: center;
     margin: 0;
-    margin-top: 5px;
-    left: 36%;
     transition: 0.4s;
     border: 1px solid black;
 }
 
+	.wrapform {
+	margin-top: 5px;	
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	}
+
+#todoin {
+	text-align: justify;
+	margin-right: 10px;
+	height: 100%;
+}
+
+#tododate {
+	margin-right: 10px;
+	display: block;
+	max-height: 50px;
+}

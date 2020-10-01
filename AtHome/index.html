@@ -4,33 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
+    <script src="5-6 задание.js"></script>
   
   <title>Document</title>
 </head>
 <body>
-  
-  <div class="wrapper id='wrapper">
-    <div id="frst" class="frst">
-      <p id="alerting">Задание удалится!</p>
-      <ol type="1" id='list'>   
-      </ol> 
-    </div>
-    <div id="second" class="second">
-      <div class="input"><input  id="areainput" type="text" name="username" value='Новое задание'  /></div>
-      <div class="button"><input id="button" type="button" value='Новое задание'></div>
-    </div>
-  </div>
-  <div class="container">
-      <form action=''>
-        <input type="text" id='input'/>
-        <button id='button'>Click</button>
+
+
+<div class="wrapper id='wrapper">
+  <div id="frst" class="frst">
+
+    <div class="container">
+      <div class="wrapform">
+        <form action="">
         <select id="sort">
-          <options value='name'>Sort by name</options>
-          <options value='date'>Sort by name</options>
+          <option value="name">Sort by name</option>
+          <option value="date">Sort by date</option>
         </select>
+      <input type="text" id="filter" />
       </form>
+      </div>
+
+    <div class="obol"><p id="alerting">Задание удалится!</p></div>
+
+    <ol type="1" id='list'>   
+    </ol>
+    </div>
   </div>
+
+  <div id="second" class="second">
+    <div class="input"><input  id="areainput" type="text" name="username" placeholder="Новое задание"/></div>
+    <div class="button"><input id="button" type="button" value='Новое задание' ></div>
+  </div>
+</div>
 </body>
 </html>
 

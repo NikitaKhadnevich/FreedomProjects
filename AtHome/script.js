@@ -26,24 +26,60 @@
 // };
 window.onload = function () {
 
-let areainput = document.getElementById('areainput'), /*Создаем Инпут*/
-button = document.getElementById('button'); /*Создаем кнопку*/
-let alerting = document.getElementById('alerting');  			
-let list = document.getElementById('list');  
- 		/*Создаем UL*/
-let myLi = document.getElementsByClassName('myLi')
-let newArray = []; 										/*Создаем Массив*/
+let areainput = document.getElementById('areainput'); /*Создаем Инпут*/
+let button = document.getElementById('button'); /*Создаем кнопку*/
+let alerting = document.getElementById('alerting');  	/*Создаем Сообщение*/		
+let list = document.getElementById('list');  /*Создаем UL*/
+let searchInput = document.getElementById('filter') /*Создаем фильтр инпут*/
+let newArray = [];	/*Создаем Массив*/
 
 button.addEventListener('click', 
 	function handleClick() {
-	let newTodo = areainput.value;  /*Заполняем все Вэлью инпута в переменную*/
+	let newTodo = {
+		todo: areainput.value,
+		createdAt: new Date(),
+		} 						/*Заполняем все Вэлью инпута в переменную*/
 	newArray.push(newTodo); /*Пушим в массив*/
 	render(newArray); 
+	console.log(newArray)
+	
 });
 
-const render = function (data) {
-	const items = newArray.reduce((str, item, i) => {   /*Данным методом мы преобразуем в строку каждый итый элемент массива, как цикл фор, только item*/
-			return str = str + `<li class="myLi">${item}<div class="tooltip" data-tooltip-text="Удалит ToDo"><p id='delete' data-num=${i}>X</p></div></li>`; 
+  const sortBy = (val) => {
+    switch (val) {
+      case "name":
+        newArray.sort((a, b) => {
+          if (a > b) {
+            return 1;
+          } else if (a.todo < b.todo) {
+            return -1;
+          } else return 0;
+        });
+        break;
+      case "date":
+        newArray.sort((a, b) => {
+          if (+a.createdAt < +b.createdAt) {
+            return 1;
+          } else if (+a.createdAt > +b.createdAt) {
+            return -1;
+          } else return 0;
+        });
+        break;
+    }
+    render();
+  };
+
+sort.onchange = function (e) {
+        sortBy(e.target.value);
+        render();
+      };
+
+const render = (data = newArray) => {
+	const items = data.reduce((str, item, i) => {   /*Данным методом мы преобразуем в строку каждый итый элемент массива, как цикл фор, только item*/
+			return (str + `<li class="myLi">
+              <p>${item?.todo}</p>
+              <p>${item?.createdAt}</p> 
+			<div><p id='delete' data-num=${i}>X</p></div></li>`); 
  				/*Даем указание ПОСЧИТАй, или правильнее выведи результат инструкции items - элемент массива в строковом виде  */
  				/*Преобразуем, путем добавлеия LI в объект, который innerHTML будет выводить как Li в верстке, где item - элемент массива newArray, i - его номер в data*/
  				/*Добавляем строчный элемент span - для создания копки удалить туду*/
@@ -67,8 +103,10 @@ const handleDelete = function (e) {
 }
 list.addEventListener('click', 	handleDelete);
 
+
+
 let liStyle = list.style;
-liStyle.width = '80%';
+liStyle.width = '90%';
 
 
 const handleOnMessage = function (e) {
@@ -88,4 +126,17 @@ const handleOffMessage = function (e) {
 list.addEventListener("mouseout", 	handleOffMessage);
 
 
+searchInput.addEventListener('input',
+function (e) {
+    let inputValue = e.target.value;
+ 	let filteredData = newArray.filter( 
+     	function(item) {
+        return item.todo.includes(e.target.value);
+    }
+);
+    render(filteredData);
+    console.log(filteredData)
+  });
+render();
 }
+
