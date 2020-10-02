@@ -1,16 +1,33 @@
-/*.quad {
-	margin: 0 auto;
-	background: pink;
-	width: 500px;
-	height: 500px;
-	display: flex;
-	justify-content: space-around;
-}*/
-
-.two {
-	padding: 10px;
-	width: 50px;
-	height: 50px;
-	border: 2px solid black;
+body {
+	height: 100%;
 }
 
+.wrapper {
+	background: tomato;
+	width: 75%;
+	height: 50px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	border: white 1px solid;
+}
+
+.blocks {
+	width: 300px;
+	margin: 0 auto;
+	border: white 2px solid;
+	border-radius: 5px;
+	height: 50px;
+	text-align: center;
+	width: 50%;
+}
+
+.twoblock {
+	background: tomato;
+ 	width: 75%;
+ 	margin: 0 auto;
+	border: white 2px solid;
+	border-radius: 5px;
+	height: 50px;
+	text-align: center;
+}

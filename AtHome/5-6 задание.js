@@ -33,32 +33,28 @@ let list = document.getElementById('list');  /*Создаем UL*/
 let searchInput = document.getElementById('filter') /*Создаем фильтр инпут*/
 let newArray = JSON.parse(localStorage.getItem("newArray")) || [];;	/*Создаем Массив*/
 
+const getMyDate = function () {
+    let d = new Date();
+	let a = (`${d.getDate()}.${d.getMonth()}.${d.getFullYear()}`);
+ 	let b = (`${d.getHours()}:${d.getMinutes()}`);
+    
+    return {
+ 	 	value: +d,
+ 	 	label: `${a} ${b}`
+    };
+}
 
- 	let myDate = function myDate() {
-				    let d = new Date();
-			    	let a = (`${d.getDate()}.${d.getMonth()}.${d.getFullYear()}`);
-				 	let b = (`${d.getHours()}:${d.getMinutes()}`);
-				    return (`${a} ${b}`);
-				    console.log(myDate);
-					}
-
-
-
-button.addEventListener('click', 
-	function handleClick() {
+function handleClick() {
 	let newTodo = {
 		todo: areainput.value, 	/*Создаём ОБЪЕКТ, как объект массива*/
-		createdAt: 	new Date(),
-		} 	
-
-
-						/*Заполняем все Вэлью инпута в переменную*/
+		createdAt: getMyDate(),
+		}						/*Заполняем все Вэлью инпута в переменную*/
 	newArray.push(newTodo); /*Пушим в массив*/
 	localStorage.setItem("newArray)", JSON.stringify(newArray));
 	render(newArray);  		/*Рендерим массив*/
 	console.log(newArray)
-	
-});
+}
+button.addEventListener('click', handleClick);
 
 const sortBy = function(val){
 switch (val) {
@@ -73,9 +69,9 @@ switch (val) {
     break;
   case "date":
     newArray.sort((a, b) => {
-      if (+a.createdAt < +b.createdAt) {
+      if (a.createdAt.value < b.createdAt.value) {
         return 1;
-      } else if (+a.createdAt > +b.createdAt) {
+      } else if (a.createdAt.value > b.createdAt.value) {
         return -1;
       } else return 0;
     });
@@ -95,7 +91,7 @@ const render = (data = newArray) => {
 	   /*Данным методом мы преобразуем в строку каждый итый элемент массива, как цикл фор, только item*/
 			return (str + `<li class="myLi">
               <p id="todoin">${item?.todo}</p>
-              <p id="tododate">${item?.createdAt}</p> 
+              <p id="tododate">${item?.createdAt.label}</p> 
 			<div><p id='delete' data-num=${i}>X</p></div></li>`); 
  				/*Даем указание ПОСЧИТАй, или правильнее выведи результат инструкции items - элемент массива в строковом виде  */
  				/*Преобразуем, путем добавлеия LI в объект, который innerHTML будет выводить как Li в верстке, где item - элемент массива newArray, i - его номер в data*/
@@ -107,7 +103,8 @@ const render = (data = newArray) => {
 
 const handleDelete = function (e) {
 	if (e.target.id === 'delete') { 
-		result = confirm('Вы точно хотите удалить')
+		hideNotification();
+		const result = confirm('Вы точно хотите удалить')
 		 	if (result === true) {
 		 		newArray.splice(e.target.dataset.num, 1);
 		 		localStorage.setItem("newArray", JSON.stringify(newArray));
@@ -127,19 +124,23 @@ liStyle.width = '90%';
 const handleOnMessage = function (e) {
 	if (e.target.id === 'delete') { 
     list.style.color = 'red';
-    alerting.style.opacity = '1';;
+    alerting.style.opacity = '1';
    }
 }
 list.addEventListener("mouseover", 	handleOnMessage);
 
+const hideNotification = () => {
+ 	list.style.color = '';
+    alerting.style.opacity = '0';
+    console.log(list)
+}
+
 const handleOffMessage = function (e) {
 	if (e.target.id === 'delete') { 
-    list.style.color = '';
-    alerting.style.opacity = '0';
+    hideNotification();
    	}
 }
 list.addEventListener("mouseout", 	handleOffMessage);
-
 
 searchInput.addEventListener('input',
 function (e) {

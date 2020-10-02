@@ -1,115 +1,75 @@
-// const storage = {
-//     getItem(key) {
-//         JSON.parse(localStorage.getItem(key))
-//     }
-// };
+let button = document.getElementById('button');
+let input = document.getElementById('input');
+let todo = document.getElementById('todo');
+let Arr = [];
+
+button.addEventListener('click',
+  function() {
+  let newTodo = input.value;
+  Arr.push(newTodo);
+  render(Arr);
+  console.log(Arr)
+});
+
+const render = function (newArr) {
+  const newLi = Arr.forEach(function(item) {
+    console.log(`<li><p id="todoin">${item}</p>/li>`)
+    // return (`<li><p id="todoin">${item}</p>/li>`);
+    });
+  todo.innerHTML = newLi;
+
+}
 
 
-// storage.getItem('str');
+// <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=">
+  <title></title>
+</head>
+<body>
+  <div class="wrapper">
+    <button id='button' >Click me</button>
+    <input id='input' value=''type='text'>
+  </div>
+  
+  <div class="mytodo">
+    <ul id='todo'>
 
-      
-      let todos = JSON.parse(localStorage.getItem("todos")) || [];
+    </ul>
+  </div>
+</body>
+</html>
 
-    //   let todos;
-    //   const persistedTodos = JSON.parse(localStorage.getItem("todos"));
+body {
+  background: gray;
+}
 
-    //   if(persistedTodos) {
-    //     todos = persistedTodos;
-    //   } else {
-    //     todos = [];
-    //   }
-      
+.wrapper {
+  display: flex;
+  border: red 1px solid;
+  width: 50%;
+  margin: 0 auto;
+}
 
-      const deleteTodo = (index) => {
-        todos.splice(index, 1);
-        localStorage.setItem("todos", JSON.stringify(todos));
-      };
+#button {
+  margin: 0 auto;
+  width: 80px;
+  height: 30px;
+}
 
-      const addTodo = (value) => {
-        const task = {
-            value,
-            createdAt: new Date(),
-        };
-        
-        todos.push(task);
-        
-        localStorage.setItem("todos", JSON.stringify(todos));
-      };
+#input {
+    margin: 0 auto;
+  width: 350px;
+  height: 20px;
+}
 
-      const sortBy = (val) => {
-        switch (val) {
-          case "name":
-            todos.sort((a, b) => {
-              if (a > b) {
-                return 1;
-              } else if (a.value < b.value) {
-                return -1;
-              } else return 0;
-            });
-            break;
-          case "date":
-            todos.sort((a, b) => {
-              if (+a.createdAt < +b.createdAt) {
-                return 1;
-              } else if (+a.createdAt > +b.createdAt) {
-                return -1;
-              } else return 0;
-            });
-            break;
-        }
-
-        render();
-      };
-
-      const render = (data = todos) => {
-        const innerData = data.reduce((str, item, i) => {
-          return (
-            str +
-            `<li>
-              <span data-num="${i}" id="deleteButton">\&times</span>
-              <p>${item?.value}</p>
-              <p>${item?.createdAt}</p> 
-            </li>`
-          );
-        }, "");
-
-        ul.innerHTML = innerData;
-      };
-
-      button.onclick = function (e) {
-        e.preventDefault();
-        const { value } = input;
-
-        addTodo(value);
-        render();
-      };
-
-      ul.onclick = function (e) {
-        if (e.target.id === "deleteButton") {
-          deleteTodo(e.target.dataset.num);
-
-
-          render();
-        }
-      };
-
-      sort.onchange = function (e) {
-        sortBy(e.target.value);
-
-        render();
-      };
-
-      filter.addEventListener('input', function (e) {
-        const { value: inputValue } = e.target; // e.target.value
-
-        const filteredData = todos.filter( 
-            function(item, i, arr) {
-                return item.value.includes(inputValue);
-            }
-        );
-
-        render(filteredData);
-      });
-
-
-     render();
+.mytodo {
+  height: 600px;
+  width: 65%;
+  border: 2px solid white;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
