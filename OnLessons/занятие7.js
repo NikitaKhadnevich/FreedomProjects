@@ -1,35 +1,65 @@
 
+/*По сути что приисходит*/
+/*1.Нажимаем на элемент ссылку эбаут из его нейма(после проверок) улетает значенеи в хэш,
+2. Вызывыем функцию рендера с условием: если значение хэша без # Равно полю Нэйм, т озаписать в верстку иннер */ 
+
+const nav = document.getElementById('nav')
+const twoblock = document.getElementById('twoblock'); /*Задаю харты HTML*/
 
 
-window.getEventListener('hashchange' , onHashChange);
-navigation.getEventListener('click', handleClick);
-
-let twoblock = document.getElementById('twoblock');
-
-const handleClick = (e) => {
+nav.addEventListener('click', handleClick); /*Приклике на всему NAV выводить функцию*/
+function handleClick(e) {
 	if (e.target.tagName !== 'A') {
-		return;
+		return; 	/*Если я кликаю на Элемент НЕ содержащий А, то ничего не делать*/
 	}
-	e.preventDefault();
-	window.location.hash = e.target.name;
+	e.preventDefault(); /*В ином случае 1.Останавливаем стандартное поведение браузера*/
+	window.location.hash = e.target.name; /*2. Присваеваем ХЭШУ ИМЯ ССЫЛКИ*/
 }
 
-function onHashChange () => {
-	render();
+
+window.addEventListener('hashchange' , onHashChange);/*Юзаю вывод ХЭША*/
+function onHashChange () {
+	render(); 		/*Эта функция будет перерисовывать новые данные, запуская RENDER*/
 }
 
-function render () {
-	const hash = window.location.hash.slice(1);
+
+function render () { /*Вот и сама функция*/
+	const hash = window.location.hash.slice(1); /*1. Задаем константу значению Самого хэша, начиная со 2 символа
+	т.е. убираем #*/
 
 	switch (hash) {
-		case 'about':
-		 	return (twoblock.innerHTML = '<p>ABOUT</p>');
-		case 'project':
-		 	return (twoblock.innerHTML = '<p>PROJECT</p>');
-		case 'myOS':
-		 	return (twoblock.innerHTML = '<p>MYOS</p>');
+		case 'About':
+		 	return (twoblock.innerHTML = getAbout());
+		case 'Project':
+		 	return (twoblock.innerHTML = getHome());
+		case 'MyOS':
+		 	return (twoblock.innerHTML = getMyOS());
+		default:
+		 	return (twoblock.innerHTML = getError());
 	}
 }
 
-alert('dfdf');
+function getAbout() {
+	return 	'<div class="about"><img src="Corax.jpg"><div id="infText"><p>Статус: Примарх легиона Чёрного Ворона</p><p>Родной мир: Освобождение</p><p>Возраст: Тысячи лет, точно неизветно</p></div></div>'
+}
+function getHome() {
+	return '<div id="slideProj"><div id="plus"><a href="tut.by"><</a></div><div id="myImg"></div><div id="minus"><a href="tut.by">></a></div></div>';
+}
 
+function getMyOS() {
+	const appVersion = navigator.appVersion;
+	const userAgent = navigator.userAgent;
+	const platform = navigator.platform;
+	return `<div id="MyOsInf">
+	 			<p><q> Version</q>: ${appVersion}</p>
+	 			<p><q> User Agent</q>: ${userAgent}</p>
+	 			<p><q> platform</q>: ${platform}</p>
+	 		</div>`	
+}
+
+function getError() {
+	return '<p>ERROR</p>';
+}
+
+
+render();
