@@ -13,7 +13,7 @@ body {
 	display: grid;
 	align-items: center;
 	margin: 0 auto;
-	background-color: #5f4612;
+	background-color: #0d0802;
 	border: white 2px solid;
 	border-radius: 5px;
 	height: 50px;
@@ -22,7 +22,7 @@ body {
 }
 
 .twoblock {
-	background: #5f4612;
+	background: #1e1307;
  	width: 75%;
  	margin: 0 auto;
 	border: white 2px solid;
@@ -44,18 +44,32 @@ body {
 	text-shadow: 0 0 0.9em white;
 }
 
+
+#decrementCount , #incremenetCount {
+	width: 50px;
+	height: 20px;
+	margin: 0 auto;
+}
+
 .twoblock {
   	border: 3px solid black;
   	height: 100%;
 }
 
-.twoblock > p {
+#infText {
+	display: block;
+	max-width: 100%;
+}
+
+#infText > p {
+	display: block;
+
 	text-align: left;
 	margin: 0;
 	margin-top: 5px;
 	margin-left: 10px;
  	line-height: 50px;
-	font-size: 1.5em;
+	font-size: 12px;
 	text-shadow: 0.5;
 	color: #cfbf9d;
 }
@@ -87,41 +101,59 @@ body {
 }
 
 #slideProj {
-	height: 65vh;
+
+	height: 90%;
 	min-width: 300px;
-	width: 90%;
-	border: red 1px solid;
+	width: 55%;
+	/*border: red 1px solid;*/
 	border-radius: 5px;
 	margin: 0 auto;
-	margin-top: 10%;
+		margin-top: 25px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-#plus , #minus {
+#incrementCount , #decrementCount {
 	border: white 1px solid;
 	width: 30px;
 	height: 30px;
 }
 
-#plus a {
+#incrementCount a {
 	display: block;
 	width: 30px;
 	height: 30px;
+	text-decoration: none;
+	font-size: 1.5em;
+	text-shadow: 0.5;
+	color: #cfbf9d;
 }
 
-#minus a {
+#decrementCount a {
 	display: block;
 	width: 30px;
 	height: 30px;
+	text-decoration: none;
+	font-size: 1.5em;
+	text-shadow: 0.5;
+	color: #cfbf9d;
+	background: red;
 }
 
 #myImg {
 	width: 85%;
-	height: 55%;
-	border: red 1px solid; 
+	height: 75%;
+	border: gray 1px solid; 
 }
+
+#myImg img {
+width: 100%;
+height: 100%;
+border: gray	 1px solid;
+border-radius: 10px;
+}
+
 
 #MyOsInf p {
 		text-align: left;
@@ -132,7 +164,6 @@ body {
 	padding: 15px;
 	line-height: 20px;
 }
-
 
 q::before { 
   content: "My";

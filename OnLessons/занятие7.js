@@ -3,6 +3,9 @@
 /*1.Нажимаем на элемент ссылку эбаут из его нейма(после проверок) улетает значенеи в хэш,
 2. Вызывыем функцию рендера с условием: если значение хэша без # Равно полю Нэйм, т озаписать в верстку иннер */ 
 
+window.onload = function () {
+
+
 const nav = document.getElementById('nav')
 const twoblock = document.getElementById('twoblock'); /*Задаю харты HTML*/
 
@@ -36,14 +39,18 @@ function render () { /*Вот и сама функция*/
 		 	return (twoblock.innerHTML = getMyOS());
 		default:
 		 	return (twoblock.innerHTML = getError());
-	}
+// 	}
+// }
 }
 
 function getAbout() {
-	return 	'<div class="about"><img src="Corax.jpg"><div id="infText"><p>Статус: Примарх легиона Чёрного Ворона</p><p>Родной мир: Освобождение</p><p>Возраст: Тысячи лет, точно неизветно</p></div></div>'
-}
-function getHome() {
-	return '<div id="slideProj"><div id="plus"><a href="tut.by"><</a></div><div id="myImg"></div><div id="minus"><a href="tut.by">></a></div></div>';
+	return 	`<div class="about"><img src="Corax.jpg">
+	 			<div id="infText">
+		 			<p>Статус: Примарх легиона Чёрного Ворона</p>
+		 			<p>Родной мир: Освобождение</p>
+		 			<p>Возраст: Тысячи лет, точно неизветно</p>
+	 			</div>
+	 		</div>`
 }
 
 function getMyOS() {
@@ -61,5 +68,52 @@ function getError() {
 	return '<p>ERROR</p>';
 }
 
+function getHome() {
+	return `<div id="slideProj">
+	            <button id="decrementCount">-</button>
+	  			<div id="myImg"></div>
+	 			<button id="incrementCount">+</button>
+	 		</div>`;
+	 	}
 
-render();
+render()
+
+}	 		
+
+
+// const incrCount = document.getElementById('incrementCount');
+// const decrCount = document.getElementById('decrementCount');
+
+// incrCount.addEventListener('click', incrementCount);
+// decrCount.addEventListener('click', decrementCount);
+
+// const pic = ["Angron.jpg", "Sangviniy.jpg", "Leman.jpg"];
+// let count = 0;
+
+// function incrementCount() {
+// 	console.log(pic[count]);
+// 	if (count === pic.length-1) {
+// 		return;
+// 	}
+// 	count++;
+// 	return render(count);
+// }
+
+// function decrementCount() {
+// 	console.log(pic[count])
+// 	if (count === 0) {
+// 		return;
+// 	}
+// 	count--;
+// 	return render(count);
+// }
+
+// function render(count) {
+//   const mySlide = pic[count];
+//   const img = `<img src="${mySlide}">`
+//   const myImg = document.getElementById('myImg');
+//   myImg.innerHTML = img;
+// }
+
+
+}
