@@ -34,86 +34,89 @@ function render () { /*Вот и сама функция*/
 		case 'About':
 		 	return (twoblock.innerHTML = getAbout());
 		case 'Project':
-		 	return (twoblock.innerHTML = getHome());
+		 	twoblock.innerHTML = getHome()
+		 	return initSlider();
 		case 'MyOS':
 		 	return (twoblock.innerHTML = getMyOS());
 		default:
 		 	return (twoblock.innerHTML = getError());
-// 	}
-// }
-}
+	}
 
-function getAbout() {
-	return 	`<div class="about"><img src="Corax.jpg">
-	 			<div id="infText">
-		 			<p>Статус: Примарх легиона Чёрного Ворона</p>
-		 			<p>Родной мир: Освобождение</p>
-		 			<p>Возраст: Тысячи лет, точно неизветно</p>
-	 			</div>
-	 		</div>`
-}
+	function getAbout() {
+		return 	`<div class="about"><img src="Corax.jpg">
+		 			<div id="infText">
+			 			<p>Статус: Примарх легиона Чёрного Ворона</p>
+			 			<p>Родной мир: Освобождение</p>
+			 			<p>Возраст: Тысячи лет, точно неизветно</p>
+		 			</div>
+		 		</div>`
+	}
 
-function getMyOS() {
-	const appVersion = navigator.appVersion;
-	const userAgent = navigator.userAgent;
-	const platform = navigator.platform;
-	return `<div id="MyOsInf">
-	 			<p><q> Version</q>: ${appVersion}</p>
-	 			<p><q> User Agent</q>: ${userAgent}</p>
-	 			<p><q> platform</q>: ${platform}</p>
-	 		</div>`	
-}
+	function getMyOS() {
+		const appVersion = navigator.appVersion;
+		const userAgent = navigator.userAgent;
+		const platform = navigator.platform;
+		return `<div id="MyOsInf">
+		 			<p><q> Version</q>: ${appVersion}</p>
+		 			<p><q> User Agent</q>: ${userAgent}</p>
+		 			<p><q> platform</q>: ${platform}</p>
+		 		</div>`	
+	}
 
-function getError() {
-	return '<p>ERROR</p>';
-}
+	function getError() {
+		return '<p>ERROR</p>';
+	}
 
-function getHome() {
-	return `<div id="slideProj">
-	            <button id="decrementCount">-</button>
-	  			<div id="myImg"></div>
-	 			<button id="incrementCount">+</button>
-	 		</div>`;
-	 	}
+	function getHome() {
+		return `<div id="slideProj">
+		            <button id="decrementCount">-</button>
+		  			<div id="myImg"></div>
+		 			<button id="incrementCount">+</button>
+		 		</div>`;
+		 	}
 
-render()
 
 }	 		
 
 
-// const incrCount = document.getElementById('incrementCount');
-// const decrCount = document.getElementById('decrementCount');
+render()
 
-// incrCount.addEventListener('click', incrementCount);
-// decrCount.addEventListener('click', decrementCount);
 
-// const pic = ["Angron.jpg", "Sangviniy.jpg", "Leman.jpg"];
-// let count = 0;
+function initSlider() {
+	const incrCount = document.getElementById('incrementCount');
+    const decrCount = document.getElementById('decrementCount');
 
-// function incrementCount() {
-// 	console.log(pic[count]);
-// 	if (count === pic.length-1) {
-// 		return;
-// 	}
-// 	count++;
-// 	return render(count);
-// }
+	incrCount.addEventListener('click', incrementCount);
+	decrCount.addEventListener('click', decrementCount);
 
-// function decrementCount() {
-// 	console.log(pic[count])
-// 	if (count === 0) {
-// 		return;
-// 	}
-// 	count--;
-// 	return render(count);
-// }
+	const pic = ["Angron.jpg", "Sangviniy.jpg", "Leman.jpg"];
+	let count = 0;
 
-// function render(count) {
-//   const mySlide = pic[count];
-//   const img = `<img src="${mySlide}">`
-//   const myImg = document.getElementById('myImg');
-//   myImg.innerHTML = img;
-// }
+	function incrementCount() {
+		console.log(pic[count]);
+		if (count === pic.length-1) {
+			return;
+		}
+		count++;
+		return renderCount(count);
+	}
 
+	function decrementCount() {
+		console.log(pic[count])
+		if (count === 0) {
+			return;
+		}
+		count--;
+		return renderCount(count);
+	}
+
+	function renderCount(count) {
+	  const mySlide = pic[count];
+	  const img = `<img src="${mySlide}">`
+	  const myImg = document.getElementById('myImg');
+	  myImg.innerHTML = img;
+}
+
+}
 
 }

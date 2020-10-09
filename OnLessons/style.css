@@ -1,9 +1,9 @@
-body {
+/*body {
 	height: 90vh;
 }
 
 #nav {
-	width: 75%;
+	width: 85%;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
@@ -23,7 +23,7 @@ body {
 
 .twoblock {
 	background: #1e1307;
- 	width: 75%;
+ 	width: 85%;
  	margin: 0 auto;
 	border: white 2px solid;
 	border-radius: 5px;
@@ -168,4 +168,4 @@ border-radius: 10px;
 q::before { 
   content: "My";
   color: tomato;
-}
+}*/

@@ -1,0 +1,89 @@
+.wrapper {
+	background: tomato;
+	width: 80%;
+	height: 600px;
+	max-height: 750px;
+ 	border: 2px solid white;
+ 	border-radius: 10px;
+ 	margin: 0 auto;
+ }
+
+ #years , #month {
+ 	margin-top: 50px;
+ 	width: 90%;
+ 	border-radius: 5px;
+ 	display: flex;
+ 	justify-content: center;
+ 	margin: 0 auto;
+ 	margin-top: 10px;
+ 	background: gray;
+ }
+
+#month {
+	background: gray;
+	display: grid;
+	justify-content: center;
+	justify-items: center;
+	margin: 0 auto;
+	margin-top: 5px;
+	grid-template-columns: repeat(5, 1fr);
+	grid-auto-rows: minmax(30px, auto);
+}
+
+
+ #years > a {
+ 	margin: 10px;
+ 	text-decoration: none;
+ 	font-size: 2em;
+ 	padding: 5px;
+ 	padding: 10px;
+ 	border-radius: 10px;
+ 	border: 1px solid white;
+ 	color: white;
+ }
+
+  #month > a {
+ 	margin: 10px;
+ 	text-decoration: none;
+ 	font-size: 2em;
+ 	padding: 7px;
+ 	border-radius: 7px;
+ 	border: 1px solid white;
+ 	font-size: 1.2em;
+ 	color: white;
+ 	opacity: 0.8;
+ }
+
+ #second {
+ 	width: 90%;
+ 	height: 70%;	
+ 	margin: 0 auto;
+ 	margin-top: 5px;
+ 	border-radius: 5px;
+ }
+
+	 table {
+	 	margin-top: 45px;
+	 	display: flex;
+	 	justify-content: center;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 5px;
+	background: #E1E3E0;
+	border-radius: 20px;
+	}
+	th {
+	font-size: 22px;
+	font-weight: 300;
+	padding: 12px 10px;
+	border-bottom: 2px solid #F56433;
+	color: #F56433;
+	}
+	tbody tr:nth-child(2) {
+	border-bottom: 2px solid #F56433;
+	}
+	td {
+	padding: 10px;
+	color: #8D8173;
+	}
