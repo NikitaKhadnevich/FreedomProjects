@@ -1,4 +1,4 @@
-/*body {
+body {
 	height: 90vh;
 }
 
@@ -105,7 +105,7 @@
 	height: 90%;
 	min-width: 300px;
 	width: 55%;
-	/*border: red 1px solid;*/
+	border: red 1px solid;
 	border-radius: 5px;
 	margin: 0 auto;
 		margin-top: 25px;
@@ -168,4 +168,4 @@ border-radius: 10px;
 q::before { 
   content: "My";
   color: tomato;
-}*/
+}

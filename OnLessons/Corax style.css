@@ -1,0 +1,171 @@
+body {
+	height: 90vh;
+}
+
+#nav {
+	width: 85%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.blocks {
+	display: grid;
+	align-items: center;
+	margin: 0 auto;
+	background-color: #0d0802;
+	border: white 2px solid;
+	border-radius: 5px;
+	height: 50px;
+	text-align: center;
+	width: 50%;
+}
+
+.twoblock {
+	background: #1e1307;
+ 	width: 85%;
+ 	margin: 0 auto;
+	border: white 2px solid;
+	border-radius: 5px;
+	height: 85%;
+	text-align: center;
+}
+
+.blocks  > a {
+ 	line-height: 50px;
+	text-decoration: none;
+	font-size: 1.5em;
+	text-shadow: 0.5;
+	color: #cfbf9d;
+
+}
+
+.blocks  > a:hover {
+	text-shadow: 0 0 0.9em white;
+}
+
+
+#decrementCount , #incremenetCount {
+	width: 50px;
+	height: 20px;
+	margin: 0 auto;
+}
+
+.twoblock {
+  	border: 3px solid black;
+  	height: 100%;
+}
+
+#infText {
+	display: block;
+	max-width: 100%;
+}
+
+#infText > p {
+	display: block;
+
+	text-align: left;
+	margin: 0;
+	margin-top: 5px;
+	margin-left: 10px;
+ 	line-height: 50px;
+	font-size: 12px;
+	text-shadow: 0.5;
+	color: #cfbf9d;
+}
+
+.about {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.about > img {
+	width: 35%;
+	margin: 10px;
+}
+
+#infText {
+	height: 50%;
+	margin: 10px;
+	width: 100%;
+	margin-top: 0px;
+}
+
+#infText > p {
+	text-align: left;
+	font-size: 1.5em;
+	text-shadow: 0.5;
+	color: #cfbf9d;
+	margin: 0;
+	line-height: 40px;
+}
+
+#slideProj {
+
+	height: 90%;
+	min-width: 300px;
+	width: 55%;
+	border: red 1px solid;
+	border-radius: 5px;
+	margin: 0 auto;
+		margin-top: 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#incrementCount , #decrementCount {
+	border: white 1px solid;
+	width: 30px;
+	height: 30px;
+}
+
+#incrementCount a {
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-decoration: none;
+	font-size: 1.5em;
+	text-shadow: 0.5;
+	color: #cfbf9d;
+}
+
+#decrementCount a {
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-decoration: none;
+	font-size: 1.5em;
+	text-shadow: 0.5;
+	color: #cfbf9d;
+	background: red;
+}
+
+#myImg {
+	width: 85%;
+	height: 75%;
+	border: gray 1px solid; 
+}
+
+#myImg img {
+width: 100%;
+height: 100%;
+border: gray	 1px solid;
+border-radius: 10px;
+}
+
+
+#MyOsInf p {
+		text-align: left;
+	font-size: 1.2em;
+	text-shadow: 0.5;
+	color: #cfbf9d;
+	margin: 0;
+	padding: 15px;
+	line-height: 20px;
+}
+
+q::before { 
+  content: "My";
+  color: tomato;
+}
