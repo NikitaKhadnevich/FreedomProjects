@@ -1,9 +1,6 @@
-const monthes = document.getElementById('month');
-const month1 = document.getElementById('Ju');
-const month2 = document.getElementById('Fe');
-const month3 = document.getElementById('Ma');
-
-
+const month = document.getElementById('month');
+const calendar = document.getElementById('calendar');
+const month2 = document.getElementById('month2');
 const years = document.getElementById('years');
 const year18 = document.getElementById('y18');
 const year19 = document.getElementById('y19');
@@ -20,15 +17,10 @@ function handleClick(e) {
   window.location.hash = e.target.name; /*2. Присваеваем ХЭШУ ИМЯ ССЫЛКИ*/
 }
 
-
 window.addEventListener('hashchange' , onHashChange);/*Юзаю вывод ХЭША*/
 function onHashChange () {
   render();     /*Эта функция будет перерисовывать новые данные, запуская RENDER*/
 }
-
-function render () { /*Вот и сама функция*/
-  const hash = window.location.hash.slice(1); /*1. Задаем константу значению Самого хэша, начиная со 2 символа
-  т.е. убираем #*/}
 
   function render () { /*Вот и сама функция*/
   const hash = window.location.hash.slice(1); /*1. Задаем константу значению Самого хэша, начиная со 2 символа
@@ -36,194 +28,327 @@ function render () { /*Вот и сама функция*/
 
   switch (hash) {
     case '2018':
-      monthes.innerHTML = create2018();
-      break;
+        return initSlider2()
+       return initSlider()
+       break;
     case '2019':
-      monthes.innerHTML = create2019()
+      return initSlider()
       break;
     case '2020':
-      monthes.innerHTML = create2020()
+      return initSlider()
       break;
     // default:
     //   return (monthes.innerHTML = getError());
   }
 
   function create2018() {
-    return  `<a href="#" id="Ju18">Январь2018</a>
-      <a href="#" id="Fe18">Февраль</a>
-      <a href="#" id="Ma18">Март</>
-      <a href="#" id="Ap18">Апрель</>
-      <a href="#" id="Ma18">Май</>`
-  }
-
-    function create2019() {
-    return  `<a href="#" id="Ju19">Январь2019</a>
-      <a href="#" id="Fe19">Февраль</a>
-      <a href="#" id="Ma19">Март</>
-      <a href="#" id="Ap19">Апрель</>
-      <a href="#" id="Ma18">Май</>`
-  }
-
-  function create2020() {
-    return `<a href="#" id="Ju20">Январь2020</a>
-      <a href="#" id="Fe20">Февраль</a>
-      <a href="#" id="Ma20">Март</>
-      <a href="#" id="Ap20">Апрель</>
-      <a href="#" id="Ma18">Май</>`
-  }
-
-}     
-render()
-
-
-monthes.addEventListener('click', createHash); /*Приклике на всему NAV выводить функцию*/
-function createHash(e) {
-  if (e.target == 'id') {
-    return;   /*Если я кликаю на Элемент НЕ содержащий А, то ничего не делать*/
-  }
-  window.location.hash = e.target.id; /*2. Присваеваем ХЭШУ ИМЯ ССЫЛКИ*/
-}
-
-monthes.addEventListener('click', createMap); /*Приклике на всему NAV выводить функцию*/
-function createMap(monthes) {
-    if (monthes.target.id == 'Ju18') {
-      second.innerHTML = `<table>
-<tr><th colspan="5">Рабочий календарь на январь 2018</th></tr>
+    return  `
+       <table>
+       <tr><th colspan="7">Рабочий календарь на <p id='monthes'></p>2018</th></tr>
                        <tr>
-                        <td>Moday</td>
-                        <td>Tuesday</td>
-                        <td>Wednesday</td>
-                        <td>Thursday</td>
-                        <td>Friday</td>
+                        <td>Понедельник</td>
+                        <td>Вторник</td>
+                        <td>Среда</td>
+                        <td>Четверг</td>
+                        <td>Пятница</td>
+                        <td>Суббота</td>
+                        <td>Воскресенье</td>
                        </tr>
                       <tr>
                         <td>1</td>
                         <td>2</td>
                         <td>3</td>
                         <td>4</td>
-                        <td>5</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
                       </tr>
                       <tr>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                      </tr>
-                      <tr>
-                        <td>15</td>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>18</td>
-                        <td>19</td>
-                      </tr>
-                        <tr>
-                        <td>22</td>
-                        <td>23</td>
-                        <td>24</td>
-                        <td>25</td>
-                        <td>26</td>
-                      </tr>
-                        <tr>
-                        <td>30</td>
-                        <td>31</td>
-                        <td colspan="3"></td>
-                      </tr>
-                       </table>`}
-    if (monthes.target.id == 'Fe20') {
-            second.innerHTML = `<table>
-<tr><th colspan="5">Рабочий календарь на февраль 2020</th></tr>
-                       <tr>
-                        <td>Moday</td>
-                        <td>Tuesday</td>
-                        <td>Wednesday</td>
-                        <td>Thursday</td>
-                        <td>Friday</td>
-                       </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                      </tr>
-                      <tr>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
-                        <td>14</td>
-                        <td>15</td>
-                      </tr>
-                      <tr>
-                        <td>18</td>
-                        <td>19</td>
-                        <td>20</td>
-                        <td>21</td>
-                        <td>22</td>
-                      </tr>
-                        <tr>
-                        <td>25</td>
-                        <td>26</td>
-                        <td>27</td>
-                        <td>28</td>
-                        <td colspan="3"></td>
-                      </tr>
-                       </table>`}
-
-    if (monthes.target.id == 'Ma19') {
-            second.innerHTML = `<table>
-<tr><th colspan="5">Рабочий календарь на март 2019</th></tr>
-                       <tr>
-                        <td>Moday</td>
-                        <td>Tuesday</td>
-                        <td>Wednesday</td>
-                        <td>Thursday</td>
-                        <td>Friday</td>
-                       </tr>
-                      <tr>
+                        <td>1</td>
                         <td>2</td>
                         <td>3</td>
                         <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
                       </tr>
                       <tr>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
                       </tr>
                       <tr>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>18</td>
-                        <td>19</td>
-                        <td>20</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
                       </tr>
-                        <tr>
-                        <td>23</td>
-                        <td>24</td>
-                        <td>25</td>
-                        <td>26</td>
-                        <td>27</td>
+                       </table>`          }
+  }
+
+    function create2019() {
+    return   `
+       <table>
+       <tr><th colspan="7">Рабочий календарь на <p id='monthes'></p> 2019</th></tr>
+                       <tr>
+                        <td>Понедельник</td>
+                        <td>Вторник</td>
+                        <td>Среда</td>
+                        <td>Четверг</td>
+                        <td>Пятница</td>
+                        <td>Суббота</td>
+                        <td>Воскресенье</td>
+                       </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
                       </tr>
-                        <tr>
-                        <td>30</td>
-                        <td>31</td>
-                        <td colspan="3"></td>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
                       </tr>
                        </table>`
+  }
+
+  function create2020() {
+    return  `<table>
+       <tr><th colspan="7">Рабочий календарь на <p id='monthes'></p> 2020</th></tr>
+                       <tr>
+                        <td>Понедельник</td>
+                        <td>Вторник</td>
+                        <td>Среда</td>
+                        <td>Четверг</td>
+                        <td>Пятница</td>
+                        <td>Суббота</td>
+                        <td>Воскресенье</td>
+                       </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                       </table>`
+  }
+ 
+render()
+
+
+
+
+
+// console.log(my2018)
+
+
+
+  // createCal: function () {
+  //   console.log(`${this.name}, ${this.year}, ${this.month}`)
+  //   }
+// my2018.createCal()
+const my2018 = new Object ({
+  name: 'calendar',
+  year: 2018,
+  month: 1,
+})
+
+Object.prototype.createCalendar = function (name = `${this.name}`, year = `${this.year}`, month = `${this.month}`) { 
+      let mon = month; // месяцы в JS идут от 0 до 11, а не от 1 до 12
+      let d = new Date(year, mon);
+      let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
+      // пробелы для первого ряда
+      // с понедельника до первого дня месяца
+      // * * * 1  2  3  4
+      for (let i = 0; i < getDay(d); i++) {
+        table += '<td></td>';
+      }
+      // <td> ячейки календаря с датами
+      while (d.getMonth() == mon) {
+        table += '<td>' + d.getDate() + '</td>';
+        if (getDay(d) % 7 == 6) { // вс, последний день - перевод строки
+          table += '</tr><tr>';
+        }
+        d.setDate(d.getDate() + 1);
+      }
+      // добить таблицу пустыми ячейками, если нужно
+      // 29 30 31 * * * *
+      if (getDay(d) != 0) {
+        for (let i = getDay(d); i < 7; i++) {
+          table += '<td></td>';
+        }
+      }
+      // закрыть таблицу
+      table += '</tr></table>';
+      calendar.innerHTML = table;
     }
-    
+    function getDay(date) { // получить номер дня недели, от 0 (пн) до 6 (вс)
+      let day = date.getDay();
+      if (day == 0) day = 7; // сделать воскресенье (0) последним днем
+      return day - 1;
+    }
+
+function initSlider() {
+  const incrCount = document.getElementById('incrementCount');
+  const decrCount = document.getElementById('decrementCount');
+
+  incrCount.addEventListener('click', incrementCount);
+  decrCount.addEventListener('click', decrementCount);
 
 
+   function incrementCount (next) {
+    next = my2018.month;
+    if (next <= 12 || next > 0) {
+      my2018.createCalendar(calendar, this.year, this.month)  
+    }
+    my2018.month += +1;
+  };
 
-
-
-
-
-
-    console.log(monthes.target.id)
+    function decrementCount() {
+    next = my2018.month;
+    if (next <= 12 || next > 0) {
+      my2018.createCalendar(calendar, this.year, this.month)
+    };
+    my2018.month += -1;
+  };
 }
+
+function initSlider2() {
+  const incrCount2 = document.getElementById('incrementCount');
+  const decrCount2 = document.getElementById('decrementCount');
+
+  incrCount2.addEventListener('click', incrementCount);
+  decrCount2.addEventListener('click', decrementCount);
+
+  const myMonthes = ['Январь', 'Февраль', 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь'];
+  let count = 0;
+
+
+  function renderCount() {
+    const checkMonthes = myMonthes[count];
+    const getMonthes = `<p>${checkMonthes}</p>`;
+    const createElem = document.getElementById('month2');
+    month2.innerHTML = getMonthes;
+  } 
+
+  function renderCount() {
+    const checkMonthes = myMonthes[count];
+    const getMonthes = `<p>${checkMonthes}</p>`;
+    const createElem = document.getElementById('month2');
+    month2.innerHTML = getMonthes;
+  } 
+
+  function incrementCount() {
+    if (count === myMonthes.length-1) {
+      return;
+    }
+    count++;
+    return renderCount(count);
+  }
+
+  function decrementCount() {
+    console.log(myMonthes[count]);
+    if (count === myMonthes.length+1) {
+      return;
+    }
+    count--;
+    return renderCount(count);
+  }
+
+
+}  
+
+
+
+
+
+
+
 
