@@ -3,6 +3,7 @@ function Truck (name, weight, lifting) {
 	this.weight = weight;
 	this.lifting = lifting;
 }
+
 Truck.prototype.getTruckInfo = function () {
 	console.log (`${this.name} : ${this.lifting}`)
 }

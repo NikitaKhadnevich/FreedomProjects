@@ -1,6 +1,7 @@
 .wrapper {
 	background: tomato;
 	width: 95%;
+	min-height: 500px;
 	height: 100%;
 	max-height: 750px;
  	border: 2px solid white;
@@ -15,13 +16,33 @@
  	display: flex;
  	justify-content: center;
  	margin: 0 auto;
- 	margin-top: 10px;
+ 	margin-top: 25px;
  	background: gray;
  }
 
 #month {
 	height: 100%;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
+}
+
+#month2 > p {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	text-align: left;
+
+}
+
+
+#calendar {
+align-self: center;
+}
+
+
+#bodyCelendar {
+	display: flex;
+	justify-content: space-around;
+    min-height: 350px;
+    margin-right: 10px;
+	height: 100%;
 }
 
 
@@ -87,13 +108,11 @@
 	color: #8D8173;
 	}
 
-
 	#incrementCount , #decrementCount {
 		position: relative;
 		width: 30px;
 		background: tomato;
 		border-radius: 5px;
-		margin: 5px;
 		margin: 0 auto;
 		display: grid;
 		align-self: center;
@@ -107,4 +126,11 @@
 	th {
 		margin: 0 auto;
 
+	}
+
+		#incrementCount {
+		margin-left: 5px;
+	}
+	#decrementCount {
+		margin-right: 5px;
 	}
