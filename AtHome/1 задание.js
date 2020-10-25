@@ -584,3 +584,15 @@
 // // 	alert('mda heh')
 // // }
 
+for (var i = 0; i < 10; i++) {
+  var clo = (function(counter) {
+      return function() {
+        date = new Date();
+        console.log();
+        console.log(counter, date.getMilliseconds(0, 0, 01));
+        }
+    });           
+                 
+                 
+  setTimeout(clo(i), (i+1)*1000);
+}

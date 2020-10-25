@@ -2,10 +2,14 @@ const month = document.getElementById('month');
 const calendar = document.getElementById('calendar');
 const monthName = document.getElementById('monthName');
 const years = document.getElementById('years');
+
+const bodyCelendar = document.getElementById('bodyCelendar');
+const but1 = document.getElementById('but1');
+const but2 = document.getElementById('but2');
+
 const year18 = document.getElementById('y18');
 const year19 = document.getElementById('y19');
 const year20 = document.getElementById('y20');
-
 
 years.addEventListener('click', handleClick); /*Приклике на всему NAV выводить функцию*/
 function handleClick(e) {
@@ -18,27 +22,38 @@ function handleClick(e) {
 
 window.addEventListener('hashchange' , onHashChange);/*Юзаю вывод ХЭША*/
 function onHashChange () {
-  render();     /*Эта функция будет перерисовывать новые данные, запуская RENDER*/
+  const hash = window.location.hash.slice(1);
+  if (hash == '') {
+    render();}     /*Эта функция будет перерисовывать новые данные, запуская RENDER*/
+   else  {
+    render(); 
+    initSlider();
 }
-
+}
   function render () { /*Вот и сама функция*/
   const hash = window.location.hash.slice(1); /*1. Задаем константу значению Самого хэша, начиная со 2 символа
   т.е. убираем #*/
   if (hash === '2018') {
     my2018.createCalendar(this.name, this.year, 1);
-    monthName.innerHTML = `${myMonthes[0]}`
+    monthName.innerHTML = `<p>${myMonthes[0]}</p>`;
+    bodyCelendar.style.marginRight =  `10px`;
 
   }
   if (hash === '2019') {
     my2019.createCalendar(this.name, this.year, 1);
-    monthName.innerHTML = `${myMonthes[0]}`
+    monthName.innerHTML = `<p>${myMonthes[0]}</p>`;
+    bodyCelendar.style.marginRight =  `10px`;
 
   }
   if (hash === '2020') {
     my2020.createCalendar(this.name, this.year, 1); 
-    monthName.innerHTML = `${myMonthes[0]}`
+    monthName.innerHTML = `<p>${myMonthes[0]}</p>`;
+    bodyCelendar.style.marginRight =  `10px`;
   }
-} 
+  else if (hash === '') {
+      window.location.reload();
+  }
+}
 
 const my2018 = new Object ({ /*Билд объекта*/
   name: 'calendar',
@@ -50,6 +65,7 @@ Object.setPrototypeOf(my2018,
 
 const my2019 = {
   year: 2019,
+  month: 1,
 }
 Object.setPrototypeOf(my2019, 
  {createCalendar, initSlider})/*Добавления в прото функции */
@@ -57,11 +73,9 @@ Object.setPrototypeOf(my2019,
 const my2020 = Object.create(my2018);/*Добавления в прото функции */
 my2020.year = 2020;
 
-
-
 const myMonthes = ['Январь', 'Февраль', 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь'];
 
-function createCalendar (name = `${this.name}`, year = `${this.year}`, month = `${this.month}`) { 
+function createCalendar (name = this.name, year = this.year, month = this.month) { 
       let mon = month-1; // месяцы в JS идут от 0 до 11, а не от 1 до 12
       let d = new Date(year, mon);
       let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
@@ -88,19 +102,20 @@ function createCalendar (name = `${this.name}`, year = `${this.year}`, month = `
       }
       // закрыть таблицу
       table += '</tr></table>';
-
-      const myMonthes = ['Январь', 'Февраль', 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь'];
-
+      
       if (this.month <= 12 && this.month >= 0) {
-        calendar.innerHTML = `${table}`
-        monthName.innerHTML = `${myMonthes[this.month-1]}`;
+        calendar.innerHTML = `${table}`;
+        monthName.innerHTML = `<p>${myMonthes[this.month-1]}</p>`;
         monthName.style.display = 'block';
         monthName.style.paddingLeft = '25px';
-        monthName.style.width = '200px';
-        monthName.style.background = '#E1E3E0';
+        monthName.style.width = '50%';
+        monthName.style.background = 'white';
         monthName.style.borderRadius = '5px';
-        monthName.style.marginRight = '5px' 
-        // this.createCalendar(this.name, this.year, this.month);     
+        monthName.style.marginRight = '5px';
+        monthName.style.marginTop = '10px';
+        monthName.style.marginBottom = '10px';
+        monthName.style.marginLeft = '10px';
+     // this.createCalendar(this.name, this.year, this.month);     
       } else {
         calendar.innerHTML = `Увы, Это не тот год`
       }
@@ -113,59 +128,43 @@ function createCalendar (name = `${this.name}`, year = `${this.year}`, month = `
 }  
 
 function initSlider() {
+  but1.innerHTML = `<button id='decrementCount'><</button>`
+  but2.innerHTML = `<button id='incrementCount'>></button>`
   const incrCount = document.getElementById('incrementCount');
   const decrCount = document.getElementById('decrementCount');
   incrCount.addEventListener('click', incrementCount);
   decrCount.addEventListener('click', decrementCount);
+  render();
 
   function incrementCount () {
-      const hash = window.location.hash.slice(1);
-      if (hash == 2018 && my2018.month < 12) {
-      my2018.month++;
-      my2018.createCalendar(this.name, this.year, this.month);
-      console.log(`это мой месяц 2018 ${my2018.month}`)}
-      else {
-      my2018.createCalendar(this.name, this.year, 1);
-      monthName.innerHTML = `${myMonthes[0]}`;
-      my2018.month = 1;
-      console.log(`это мой месяц 2018 ${my2018.month}`)}
-
-    // if (hash == 2019 && (my2019.month < 12)) {
-    //   my2019.month += +1;
-    //   my2019.createCalendar(this.name, my2019.year, this.month);
-    
-    // }
-    // if (hash == 2020) {
-    //   my2020.month += +1;
-    //   my2020.createCalendar(this.name, this.year, this.month);
-    // };
+    const hash = window.location.hash.slice(1);
+    if (hash == 2018 && my2018.month < 12) {
+    my2018.month++;
+    my2018.createCalendar(this.name, this.year, this.month);
+    console.log(`это мой месяц ${my2018.month} ${my2018.year} года`)
+    }
+    else {
+    my2018.createCalendar(this.name, this.year, 1);
+    monthName.innerHTML = `<p>${myMonthes[0]}<p>`;
+    my2018.month = 1;
+    console.log(`это мой месяц ${my2018.month} ${my2018.year} года`)
+    }
   };
 
   function decrementCount() {
     const hash = window.location.hash.slice(1);
     if (hash == 2018 && my2018.month > 1) {
-      my2018.month--;         /*Проскакивает через 0 из-за того, что я не смог в условия И/ИЛИ перечитать!!!*/
-      my2018.createCalendar(this.name, this.year, this.month);
-      console.log(`это мой месяц 2018 ${my2018.month}`)
+    my2018.month--;         /*Проскакивает через 0 из-за того, что я не смог в условия И/ИЛИ перечитать!!!*/
+    my2018.createCalendar(this.name, this.year, this.month);
+    console.log(`это мой месяц ${my2018.month} ${my2018.year} года`)
     } else {
-      my2018.createCalendar(this.name, this.year, 12);
-      monthName.innerHTML = `${myMonthes[11]}`;
-      my2018.month = 12;
-      console.log(`это мой месяц 2018 ${my2018.month}`)}
-
-    // if (hash == 2019) {
-    //   my2019.month += -1;
-    //   my2019.createCalendar(this.name, this.year, this.month);
-    // }
-    // if (hash == 2020) {
-    //   my2020.month += -1;
-    //   my2020.createCalendar(this.name, this.year, this.month);
-    // };
+    my2018.createCalendar(this.name, this.year, 12);
+    monthName.innerHTML = `<p>${myMonthes[11]}</p>`;
+    my2018.month = 12;
+    console.log(`это мой месяц ${my2018.month} ${my2018.year} года`)
+    }
   };
 };  
-
-initSlider()
-
 
 // function initSlider2() {
 //   const incrCount2 = document.getElementById('incrementCount');
