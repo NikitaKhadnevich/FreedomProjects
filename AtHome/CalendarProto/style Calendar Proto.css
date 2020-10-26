@@ -1,3 +1,5 @@
+
+
 .wrapper {
 background: rgb(153,169,255);
 background: linear-gradient(90deg, rgba(153,169,255,1) 0%, rgba(250,121,130,1) 100%);
@@ -20,8 +22,7 @@ background: linear-gradient(90deg, rgba(153,169,255,1) 0%, rgba(250,121,130,1) 1
  	margin-top: 25px;
  	background: rgb(94,117,240);
 background: linear-gradient(90deg, rgba(94,117,240,1) 0%, rgba(244,71,83,1) 100%);
-
- }
+}
 
 #month {
 	height: 100%;
