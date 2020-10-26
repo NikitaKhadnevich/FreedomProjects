@@ -11,7 +11,6 @@
 //  		quars[8].style.border = z
 // 	  }		
 
-
 // 	// ________________________________________
 
 // let suite = document.querySelectorAll('li a');
