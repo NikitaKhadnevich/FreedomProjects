@@ -64,6 +64,7 @@ Object.setPrototypeOf(my2018,
  {createCalendar, initSlider})
 
 const my2019 = {
+  name: 'calendar',
   year: 2019,
   month: 1,
 }
