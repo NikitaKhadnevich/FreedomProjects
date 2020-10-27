@@ -35,7 +35,7 @@ function render () { /*Вот и сама функция*/
 		 	return (twoblock.innerHTML = getAbout());
 		case 'Project':
 		 	twoblock.innerHTML = getHome()
-		 	return initSlider();
+		 	return createInitSlider();
 		case 'MyOS':
 		 	return (twoblock.innerHTML = getMyOS());
 		default:
@@ -82,7 +82,7 @@ function render () { /*Вот и сама функция*/
 render()
 
 
-function initSlider() {
+function createInitSlider() {
 	const incrCount = document.getElementById('incrementCount');
     const decrCount = document.getElementById('decrementCount');
 

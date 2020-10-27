@@ -3,7 +3,7 @@ const calendar = document.getElementById('calendar');
 const monthName = document.getElementById('monthName');
 const years = document.getElementById('years');
 
-const bodyCelendar = document.getElementById('bodyCelendar');
+const bodyCalendar = document.getElementById('bodyCalendar');
 const but1 = document.getElementById('but1');
 const but2 = document.getElementById('but2');
 
@@ -27,7 +27,7 @@ function onHashChange () {
     render();}     /*Эта функция будет перерисовывать новые данные, запуская RENDER*/
    else  {
     render(); 
-    initSlider();
+    createInitSlider();
 }
 }
   function render () { /*Вот и сама функция*/
@@ -36,19 +36,19 @@ function onHashChange () {
   if (hash === '2018') {
     my2018.createCalendar(this.name, this.year, 1);
     monthName.innerHTML = `<p>${myMonthes[0]}</p>`;
-    bodyCelendar.style.marginRight =  `10px`;
+    bodyCalendar.style.marginRight =  `10px`;
 
   }
   if (hash === '2019') {
     my2019.createCalendar(this.name, this.year, 1);
     monthName.innerHTML = `<p>${myMonthes[0]}</p>`;
-    bodyCelendar.style.marginRight =  `10px`;
+    bodyCalendar.style.marginRight =  `10px`;
 
   }
   if (hash === '2020') {
     my2020.createCalendar(this.name, this.year, 1); 
     monthName.innerHTML = `<p>${myMonthes[0]}</p>`;
-    bodyCelendar.style.marginRight =  `10px`;
+    bodyCalendar.style.marginRight =  `10px`;
   }
   else if (hash === '') {
       window.location.reload();
@@ -61,7 +61,7 @@ const my2018 = new Object ({ /*Билд объекта*/
   month: 1,
 })
 Object.setPrototypeOf(my2018, 
- {createCalendar, initSlider})
+ {createCalendar, createInitSlider})
 
 const my2019 = {
   name: 'calendar',
@@ -69,7 +69,7 @@ const my2019 = {
   month: 1,
 }
 Object.setPrototypeOf(my2019, 
- {createCalendar, initSlider})/*Добавления в прото функции */
+ {createCalendar, createInitSlider})/*Добавления в прото функции */
 
 const my2020 = Object.create(my2018);/*Добавления в прото функции */
 my2020.year = 2020;
@@ -128,18 +128,18 @@ function createCalendar (name = this.name, year = this.year, month = this.month)
     }
 }  
 
-function initSlider() {
+function createInitSlider() {
   but1.innerHTML = `<button id='decrementCount'><</button>`
   but2.innerHTML = `<button id='incrementCount'>></button>`
   const incrCount = document.getElementById('incrementCount');
   const decrCount = document.getElementById('decrementCount');
   incrCount.addEventListener('click', incrementCount);
   decrCount.addEventListener('click', decrementCount);
+  const hash = window.location.hash.slice(1);
   render();
 
   function incrementCount () {
-    const hash = window.location.hash.slice(1);
-    if (hash == 2018 && my2018.month < 12) {
+        if (hash == 2018 && my2018.month < 12) {
     my2018.month++;
     my2018.createCalendar(this.name, this.year, this.month);
     console.log(`это мой месяц ${my2018.month} ${my2018.year} года`)
@@ -153,7 +153,6 @@ function initSlider() {
   };
 
   function decrementCount() {
-    const hash = window.location.hash.slice(1);
     if (hash == 2018 && my2018.month > 1) {
     my2018.month--;         /*Проскакивает через 0 из-за того, что я не смог в условия И/ИЛИ перечитать!!!*/
     my2018.createCalendar(this.name, this.year, this.month);
@@ -167,7 +166,7 @@ function initSlider() {
   };
 };  
 
-// function initSlider2() {
+// function createInitSlider2() {
 //   const incrCount2 = document.getElementById('incrementCount');
 //   const decrCount2 = document.getElementById('decrementCount');
 //   incrCount2.addEventListener('click', incrementCount);
@@ -208,7 +207,7 @@ function initSlider() {
 // }  
 
     
-    // initSlider2()
+    // createInitSlider2()
   
 
 // render()

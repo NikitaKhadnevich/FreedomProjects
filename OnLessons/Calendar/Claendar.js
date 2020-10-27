@@ -30,7 +30,7 @@ function onHashChange () {
     case '2018':
       // calendar.innerHTML = create2018()
 
-       // return  initSlider2() 
+       // return  createInitSlider2() 
        break;
     case '2019':
       calendar.innerHTML = create2019()
@@ -276,7 +276,7 @@ Object.prototype.createCalendar = function (name = `${this.name}`, year = `${thi
       return day - 1;
     }
 
-function initSlider() {
+function createInitSlider() {
   const incrCount = document.getElementById('incrementCount');
   const decrCount = document.getElementById('decrementCount');
 
