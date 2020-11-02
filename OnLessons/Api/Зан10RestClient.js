@@ -19,7 +19,7 @@ class RestClient {
 
       return config;
    }   
-
+                        
    request(endpoint, config) {
       return fetch(endpoint, config)
       .then((response) => {

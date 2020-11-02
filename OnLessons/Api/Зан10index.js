@@ -4,7 +4,7 @@ class Client {
    constructor() {
       this.restClient = new RestClient(BASE_URL);
       this.reviews = new ReviewsClient(this.restClient);
-   }
+         }
 };
 // const result = fetch(url);
 // const render = data => {
