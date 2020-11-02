@@ -1,10 +1,8 @@
 {
   "name": "gitdirect",
-  "version": "1.0.0",
-  "description": "",
   "main": "main1.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-db": "json-server --watch db.json"
   },
   "author": "",
   "license": "ISC"
