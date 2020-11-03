@@ -27,14 +27,14 @@ function sum() {
 const res = sum()
 
 
-// let x = [1, 2, 3, 4, 5]
-// let sum = 0
-// for (let i = 0; i < x.length; i++) {
-// 	if (x[i] % 2 !== 0) {
-// 	sum = sum + x[i]*x[i]
-// }
-// }
-// console.log(sum)
+let x = [1, 2, 3, 4, 5]
+let sum = 0
+for (let i = 0; i < x.length; i++) {
+	if (x[i] % 2 !== 0) {
+	sum = sum + x[i]*x[i]
+}
+}
+console.log(sum)
 
 let ss = "М".codePointAt(0)
 let xx = "м".codePointAt(0)
