@@ -7,7 +7,6 @@ ff(100)
 
 /*Вызов всех чисел до 100*/
 
-
 function ff(num) {
 	if(num == 1) {
 		return num;
@@ -18,8 +17,6 @@ function ff(num) {
 ff(100);
 
 /*рекурсия*/
-
-
 
 function sum() {
   let count = 0;
@@ -39,8 +36,6 @@ const res = sum()
 // }
 // console.log(sum)
 
-
-
 let ss = "М".codePointAt(0)
 let xx = "м".codePointAt(0)
 
@@ -54,10 +49,6 @@ function x() {
  	 	}
 }
 alert (x())
-
-
-
-
 
 // let x = 'ТриКоняИвана'
 // let y = x.slice(7);
@@ -83,7 +74,6 @@ alert (x())
 // console.log(x())
 
 
-
 // if (year < 2015) {
 //   alert( 'Это слишком рано...' );
 // } else if (year > 2015) {
@@ -91,10 +81,6 @@ alert (x())
 // } else {
 //   alert( 'Верно!' );
 // }
-
-
-
-
 
 // let x = [1, 2, 3, 4, 5]
 
@@ -108,12 +94,6 @@ alert (x())
 //  		if 
 //  	}
 
-
-
-
-
-
-
 // // let  fruits = ['apple' , 'orange' , 'grapes' , 'banana']
 // // let newArry [];
 
@@ -124,8 +104,6 @@ alert (x())
 
 // // console.log(newArry)
 // // _______________________________________
-
-
 
 // // let nums = [1, 2, 3, 4, 5, 6,];
 // // let sum = 0;
