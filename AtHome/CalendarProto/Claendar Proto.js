@@ -27,11 +27,20 @@ function onHashChange () {
   const hash = window.location.hash.slice(1);
   if (hash == '') {
     render();}     /*Эта функция будет перерисовывать новые данные, запуская RENDER*/
-   else  {
-    render(); 
+  if (hash == 2018) {
+    render();
     createInitSlider();
+  }
+  if (hash == 2019) {
+    render(); 
+    createInitSlider2();
 }
+  if (hash == 2020) {
+    render();
+    createInitSlider3();
+  }
 }
+
   function render () { /*Вот и сама функция*/
   const hash = window.location.hash.slice(1); /*1. Задаем константу значению Самого хэша, начиная со 2 символа
   т.е. убираем #*/
@@ -141,7 +150,7 @@ function createInitSlider() {
   render();
 
   function incrementCount () {
-        if (hash == 2018 && my2018.month < 12) {
+    if (hash == 2018 && my2018.month < 12) {
     my2018.month++;
     my2018.createCalendar(this.name, this.year, this.month);
     console.log(`это мой месяц ${my2018.month} ${my2018.year} года`)
@@ -166,54 +175,83 @@ function createInitSlider() {
     console.log(`это мой месяц ${my2018.month} ${my2018.year} года`)
     }
   };
-};  
+}; 
 
-// function createInitSlider2() {
-//   const incrCount2 = document.getElementById('incrementCount');
-//   const decrCount2 = document.getElementById('decrementCount');
-//   incrCount2.addEventListener('click', incrementCount);
-//   decrCount2.addEventListener('click', decrementCount);
+function createInitSlider2() {
+  but1.innerHTML = `<button id='decrementCount'><</button>`
+  but2.innerHTML = `<button id='incrementCount'>></button>`
+  const incrCount = document.getElementById('incrementCount');
+  const decrCount = document.getElementById('decrementCount');
+  incrCount.addEventListener('click', incrementCount);
+  decrCount.addEventListener('click', decrementCount);
+  const hash = window.location.hash.slice(1);
+  render();
 
-//   const myMonthes = ['Январь', 'Февраль', 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь'];
-//   let count = 0;
+  function incrementCount() {
+    if (hash == 2019 && my2019.month < 12) {
+      my2019.month++;
+      my2019.createCalendar(this.name, this.year, this.month);
+      console.log(`это мой месяц ${my2019.month} ${my2019.year} года`)
+    }
+    else {
+      my2019.createCalendar(this.name, this.year, 1);
+      monthName.innerHTML = `<p>${myMonthes[0]}<p>`;
+      my2019.month = 1;
+      console.log(`это мой месяц ${my2019.month} ${my2019.year} года`)
+    }
+  };
 
-//   function renderCount() {
-//     const checkMonthes = myMonthes[count];
-//     const getMonthes = `<p>${checkMonthes}</p>`;
-//     const createElem = document.getElementById('monthName');
-//     monthName.innerHTML = getMonthes;
-//     monthName.style.display = 'block';
-//     monthName.style.paddingLeft = '25px';
-//     monthName.style.width = '200px';
-//     monthName.style.background = '#E1E3E0';
-//     monthName.style.borderRadius = '5px';
-//     monthName.style.marginRight = '5px'
-//   } 
+  function decrementCount() {
+    if (hash == 2019 && my2019.month > 1) {
+      my2019.month--;         /*Проскакивает через 0 из-за того, что я не смог в условия И/ИЛИ перечитать!!!*/
+      my2019.createCalendar(this.name, this.year, this.month);
+      console.log(`это мой месяц ${my2019.month} ${my2019.year} года`)
+    } else {
+      my2019.createCalendar(this.name, this.year, 12);
+      monthName.innerHTML = `<p>${myMonthes[11]}</p>`;
+      my2019.month = 12;
+      console.log(`это мой месяц ${my2019.month} ${my2019.year} года`)
+    }
+  };
+}; 
 
-//   function incrementCount() {
-//     if (count === myMonthes.length-1) {
-//       return;
-//     }
-//     count++;
-//     return renderCount(count);
-//   }
+function createInitSlider3() {
+  but1.innerHTML = `<button id='decrementCount'><</button>`
+  but2.innerHTML = `<button id='incrementCount'>></button>`
+  const incrCount = document.getElementById('incrementCount');
+  const decrCount = document.getElementById('decrementCount');
+  incrCount.addEventListener('click', incrementCount);
+  decrCount.addEventListener('click', decrementCount);
+  const hash = window.location.hash.slice(1);
+  render();
 
-//   function decrementCount() {
-//     console.log(myMonthes[count]);
-//     if (count === myMonthes.length+1) {
-//       return;
-//     }
-//     count--;
-//     return renderCount(count);
-//   }
-// }  
+  function incrementCount() {
+    if (hash == 2020 && my2020.month < 12) {
+      my2020.month++;
+      my2020.createCalendar(this.name, this.year, this.month);
+      console.log(`это мой месяц ${my2020.month} ${my2020.year} года`)
+    }
+    else {
+      my2020.createCalendar(this.name, this.year, 1);
+      monthName.innerHTML = `<p>${myMonthes[0]}<p>`;
+      my2020.month = 1;
+      console.log(`это мой месяц ${my2020.month} ${my2020.year} года`)
+    }
+  };
 
-    
-    // createInitSlider2()
-  
-
-// render()
-
+  function decrementCount() {
+    if (hash == 2020 && my2020.month > 1) {
+      my2020.month--;         /*Проскакивает через 0 из-за того, что я не смог в условия И/ИЛИ перечитать!!!*/
+      my2020.createCalendar(this.name, this.year, this.month);
+      console.log(`это мой месяц ${my2020.month} ${my2020.year} года`)
+    } else {
+      my2020.createCalendar(this.name, this.year, 12);
+      monthName.innerHTML = `<p>${myMonthes[11]}</p>`;
+      my2020.month = 12;
+      console.log(`это мой месяц ${my2020.month} ${my2020.year} года`)
+    }
+  };
+}; 
 
 
 
