@@ -13,19 +13,27 @@ const createReview = (e) => {
 
 send.addEventListener('click', createReview);
 
-const handleClick = e => {
+const handleClick = (e, mynums) => {
    e.preventDefault()
-  if(e.target.id === 'delete') {
-         /* DELETE */
-  }
-}
+   const elem = document.querySelectorAll('[data-nums]');
+   elem.forEach(function (item, i, arr) {
+      elem[i];
+   mynums = elem[i].getAttribute('data-nums')
+      console.log(mynums);
+   });
+      if(e.target.id === 'delete') {
+      // console.log(e.target.dataset.num)
+   }
+
+   }
 
 const render = ({ reviews }) => {
    const container = document.getElementById('container');
    const div = document.createDocumentFragment();
 
-   reviews.forEach(item => {
+   reviews.forEach((item,i) => {
       const itemContainer = document.createElement('div');
+      itemContainer.setAttribute("data-nums", i + 1);
       itemContainer.id = item.id;
       const itemName = document.createElement('p');
       itemName.innerHTML = item.name;
@@ -36,6 +44,7 @@ const render = ({ reviews }) => {
 
       const closeElement = document.createElement('button');
       closeElement.id = 'delete';
+      closeElement.setAttribute("data-num", i+1);
       closeElement.innerHTML = 'x';
 
       itemContainer.appendChild(itemName);
@@ -53,7 +62,7 @@ const runSpinner = state => {
    if(state) {
       document.body.style.background = 'tomato'
    } else {
-      document.body.style.background = 'white'
+      document.body.style.background = 'rgb(87,87,87) linear-gradient(90deg, rgba(87,87,87,1) 0%, rgba(93,66,18,1) 49%, rgba(105,104,104,1) 100%)'
    }
 };
 

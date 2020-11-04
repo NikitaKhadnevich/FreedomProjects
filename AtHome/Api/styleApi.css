@@ -1,0 +1,35 @@
+
+form {
+   width: 45%;
+   display: flex;
+   justify-content: space-around;
+   margin: 0 auto;
+}
+
+#container {
+   width: 95%;
+   margin: 0 auto;
+}
+
+#container > div {
+   width: 80%;
+   margin: 0 auto;
+   border: 1px solid gray;
+   border-radius: 5px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   position: relative;
+}
+#container > div > p {
+   display: block;
+   color: white;
+   font-size: 1.2em;
+   margin: 0 auto;}
+
+   
+#container > div > button {
+   position: absolute;
+   top: 0;
+   right: 0;
+}
+ 

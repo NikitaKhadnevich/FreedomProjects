@@ -49,11 +49,11 @@ class RestClient {
          );
    }
 
-   delete = (endpoint = '', params = '', data) => {
+   delete(endpoint = '', params = '', data){
       return this.request(
          `${this.baseUrl}${endpoint}?${params}`,
          this.getConfig(`delete`, data)
-      )
+      );
    }  
 
 
