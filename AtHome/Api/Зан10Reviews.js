@@ -5,6 +5,7 @@ class ReviewsClient {
    }
    getReviewsData = () => this.client.get();
    createReview = (data) => {this.client.post('', '', data)};
-   handleClick = (data) => { this.client.delete('','f77eb174-0951-4b67-8a70-bb9a65f5a2fb', data)};
+   handleClick = (url) => { this.client.delete('','', data)};
+   /* Кусок урла на удаление и не пустую сроку!! */
 }
 

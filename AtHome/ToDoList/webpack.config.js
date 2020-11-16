@@ -5,8 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
    context: path.resolve(__dirname, 'src'),
    entry: {
-      main: './Todo List.js',
-      HelloTodo: './Hello Todo List.js',
+      main: './TodoList.js',
+      HelloTodo: './HelloTodoList.js',
    },   
    output: {
       filename: '[name].bundle.js',
@@ -23,7 +23,7 @@ module.exports = {
    plugins: [
       new HTMLWebpackPlugin({
          title: 'My suite',
-         template: './index ToDo List.html',
+         template: './index.html',
       }),
       new CleanWebpackPlugin(),
    ],
