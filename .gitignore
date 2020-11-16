@@ -6,8 +6,23 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+<<<<<<< HEAD
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+=======
+# Ada Library Information
+*.ali
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+>>>>>>> ede2e3efdc260465970077de8e50c2e456dae7f9
 
 # Runtime data
 pids
@@ -112,5 +127,9 @@ dist
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
+# .yarn/install-state.gz
+# <<<<<<< HEAD
+# .pnp.*
+# =======
+# .pnp.
+# >>>>>>> ede2e3efdc260465970077de8e50c2e456dae7f9
