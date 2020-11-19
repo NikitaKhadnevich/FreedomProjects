@@ -24,8 +24,8 @@ const handleClick = (e, mynums) => {
       if(e.target.id === 'delete') {
       // console.log(e.target.dataset.num)
    }
-
-   }
+/* Фильтер но вый рендер */
+}
 
 const render = ({ reviews }) => {
    const container = document.getElementById('container');
