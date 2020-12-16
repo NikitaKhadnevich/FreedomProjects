@@ -33,11 +33,10 @@ let searchInput = document.getElementById('filter') /*Создаем фильт�
 let newArray = JSON.parse(localStorage.getItem("newArray")) || [];;	/*Создаем Массив*/
 
 const getMyDate = function () {
-    let d = new Date();
+   let d = new Date();
 	let a = (`${d.getDate()}.${d.getMonth()}.${d.getFullYear()}`);
  	let b = (`${d.getHours()}:${d.getMinutes()}`);
-    
-    return {
+   return {
  	 	value: +d,
  	 	label: `${a} ${b}`
     };
@@ -54,6 +53,20 @@ function handleClick() {
 	console.log(newArray)
 }
 button.addEventListener('click', handleClick);
+
+	const render = (data = newArray) => {
+		const items = data.reduce((str, item, i) => {
+			/*Данным методом мы преобразуем в строку каждый итый элемент массива, как цикл фор, только item*/
+			return (str + `<li class="myLi">
+              <p id="todoin">${item?.todo}</p>
+              <p id="tododate">${item?.createdAt.label}</p> 
+			<div><p id='delete' data-num=${i}>X</p></div></li>`);
+			/*Даем указание ПОСЧИТАй, или правильнее выведи результат инструкции items - элемент массива в строковом виде  */
+			/*Преобразуем, путем добавлеия LI в объект, который innerHTML будет выводить как Li в верстке, где item - элемент массива newArray, i - его номер в data*/
+			/*Добавляем строчный элемент span - для создания копки удалить туду*/
+		}, '');
+		list.innerHTML = items;/*Добавляем в верстку(скармливам innerHTML) Результат return и получаем li здорового человека*/
+	}
 
 const sortBy = function(val){
 switch (val) {
@@ -85,20 +98,7 @@ sort.onchange = function (e) {
         render();
       };
 
-const render = (data = newArray) => {
-	const items = data.reduce((str, item, i) => {
-	   /*Данным методом мы преобразуем в строку каждый итый элемент массива, как цикл фор, только item*/
-			return (str + `<li class="myLi">
-              <p id="todoin">${item?.todo}</p>
-              <p id="tododate">${item?.createdAt.label}</p> 
-			<div><p id='delete' data-num=${i}>X</p></div></li>`); 
- 				/*Даем указание ПОСЧИТАй, или правильнее выведи результат инструкции items - элемент массива в строковом виде  */
- 				/*Преобразуем, путем добавлеия LI в объект, который innerHTML будет выводить как Li в верстке, где item - элемент массива newArray, i - его номер в data*/
- 				/*Добавляем строчный элемент span - для создания копки удалить туду*/
 
-	}, '');  
-	list.innerHTML = items;/*Добавляем в верстку(скармливам innerHTML) Результат return и получаем li здорового человека*/
-}
 
 const handleDelete = function (e) {
 	if (e.target.id === 'delete') { 
@@ -143,7 +143,7 @@ list.addEventListener("mouseout", 	handleOffMessage);
 
 searchInput.addEventListener('input',
 function (e) {
-    let inputValue = e.target.value; /*присваеваем переменную вводимому в инпут значению*/
+   let inputValue = e.target.value; /*присваеваем переменную вводимому в инпут значению*/
  	let filteredData = newArray.filter( /*Запускаем фильтр*/
      	function(item) {
         return item.todo.includes(inputValue);/*Если свойство todo включает в себя вводимый инпутб
