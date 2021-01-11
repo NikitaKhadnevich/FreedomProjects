@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../AtHome"
+		},
+		{
+			"path": "../../OnLessons"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Practice/JSON/TEST API"
+	}
+}
