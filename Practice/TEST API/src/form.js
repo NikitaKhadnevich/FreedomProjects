@@ -57,8 +57,8 @@ async function putformUser(e) {
 
 container.addEventListener('click', putformUser)
 
-function letPUT(URL, obj, id) {
-    return axios.put(`${URL}` + `/` + `${id}` , obj)
+function letPATCH(URL, obj, id) {
+    return axios.patch(`${URL}` + `/` + `${id}` , obj)
     .then(res => {
     console.log(res); // Результат ответа от сервера
     })
@@ -72,17 +72,33 @@ function createValueAccums(obj) {
     });
 }
 
+function checkForm(correctForm) {
+    if (correctForm.name == '') {
+        delete correctForm.name
+    }
+    if (correctForm.age == '') {
+        delete correctForm.age
+    }
+    if (correctForm.status == '') {
+        delete correctForm.status
+    }
+    return correctForm
+}
+
 async function saveChanges(e, correctForm) {
     e.preventDefault();
     if(e.target.id === 'saveChanges') {
         correctForm = {}
-        // e.preventDefault();
         createValueAccums(correctForm);
-        await letPUT(baseURL, correctForm, e.target.dataset.numb);
+        checkForm(correctForm)
+        await letPATCH(baseURL, correctForm, e.target.dataset.numb);
         await getUsers(baseURL);
         renderUser()
         formContainer.innerHTML = ''
+    if (e.target.id === 'skipChanges') {
+        formContainer.innerHTML = ''
     }
+}
 }
 
 formContainer.addEventListener('click', saveChanges)

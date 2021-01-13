@@ -4,7 +4,7 @@ background: linear-gradient(90deg, rgba(153,169,255,1) 0%, rgba(250,121,130,1) 1
 	width: 98%;
 	min-height: 500px;
 	height: 100%;
-	max-height: 750px;
+	/* max-height: 750px; */
  	border: 2px solid white;
  	border-radius: 10px;
  	margin: 0 auto;
@@ -42,7 +42,7 @@ background: linear-gradient(90deg, rgba(153,169,255,1) 0%, rgba(250,121,130,1) 1
 #bodyCalendar {
 	display: flex;
 	justify-content: space-around;
-    min-height: 350px;
+   /* min-height: 350px; */
 	height: 100%;
 }
 
