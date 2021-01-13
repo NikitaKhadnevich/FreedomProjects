@@ -12,19 +12,17 @@ class RestClient {
             "Content-Type": "application/json",
          },
       };
-
       if (data) {
          config.body = JSON.stringify(data);
       }
-
       return config;
    }   
+   //СОБИРАЕТ ВИРТУАЛЬНЫЙ КОНФИГ
                         
    request(endpoint, config) {
       return fetch(endpoint, config)
       .then((response) => {
          const { status } = response;
-
          if (status >= 200 && status < 300) {
             return response
                .json()
@@ -35,12 +33,14 @@ class RestClient {
             }
          });            
       };
+      // СОБИРАЕТ ФЕТЧ В ЗАВИСИМОСТИ ОТ КОНФИГА
 
    get(endpoint = '', params = '') {
       return this.request(
          `${this.baseUrl}${endpoint}?${params}`,
          this.getConfig(`get`));
    }
+   // ВЫЗЫВАЕТ ГЕТ С АРГУМЕНТАМИ
 
    post(endpoint = '', params = '', data) {
       return this.request(

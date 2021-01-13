@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+   <form name="person" id="person">
+      <input id="names" name="name" placeholder="Название заметки">
+      <input id="age" name="age" placeholder="Содержимое">
+      <input id="status" name="status" placeholder="Дополнительная пометка">
+      <input type="submit" id='send' value='Отправить'> 
+      <!-- <input type="submit" id='Исправить' value='Исправить'>  -->
+    </form>
+
+    <div class="container">
+      <div class="user"></div>
+    </div>
+    <div class="formContainer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="form.js"></script>
+</body>
+</html>
