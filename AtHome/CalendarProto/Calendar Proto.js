@@ -122,22 +122,22 @@ window.onload = function() {
       }
     };
 
-    const incrCount = document.createElement('button');
-    incrCount.id = 'incrementCount';
-    incrCount.addEventListener('click', function () {
-      incrementCount(obj); /* По клику вызываем функцию */
-    });
-    but2.innerHTML = ''
-    incrCount.innerHTML = '>'
-    but2.appendChild(incrCount)
+    // const incrCount = document.createElement('button');
+    // incrCount.id = 'incrementCount';
+    // incrCount.addEventListener('click', function () {
+    //   incrementCount(obj); /* По клику вызываем функцию */
+    // });
+    // but2.innerHTML = ''
+    // incrCount.innerHTML = '>'
+    // but2.appendChild(incrCount)
 
-    const decrCount = document.createElement('button');
-    decrCount.id = 'decrementCount';
-    decrCount.addEventListener('click', function () {
-      decrementCount(obj);
-    });
-    but1.innerHTML = ''
-    decrCount.innerHTML = '<'
-    but1.appendChild(decrCount)
+    // const decrCount = document.createElement('button');
+    // decrCount.id = 'decrementCount';
+    // decrCount.addEventListener('click', function () {
+    //   decrementCount(obj);
+    // });
+    // but1.innerHTML = ''
+    // decrCount.innerHTML = '<'
+    // but1.appendChild(decrCount)
   };
 }

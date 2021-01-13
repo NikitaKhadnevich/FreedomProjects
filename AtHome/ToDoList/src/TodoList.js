@@ -66,9 +66,9 @@ const render = (data = newArray) => {
 	const items = data.reduce((str, item, i) => {
 	   /*Данным методом мы преобразуем в строку каждый итый элемент массива, как цикл фор, только item*/
 			return (str + `<li class="myLi">
-<p id="todoin">${item.todo}</p>
-              <p id="tododate">${item.createdAt.label}</p> 
-			<div><p id='delete' data-num=${i}>X</p></div></li>`); 
+					<p id="todoin">${item.todo}</p>
+              	<p id="tododate">${item.createdAt.label}</p> 
+					<div><p id='delete' data-num=${i}>X</p></div></li>`); 
  				/*Даем указание ПОСЧИТАй, или правильнее выведи результат инструкции items - элемент массива в строковом виде  */
  				/*Преобразуем, путем добавлеия LI в объект, который innerHTML будет выводить как Li в верстке, где item - элемент массива newArray, i - его номер в data*/
  				/*Добавляем строчный элемент span - для создания копки удалить туду*/
