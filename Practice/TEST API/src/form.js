@@ -47,6 +47,7 @@ async function putformUser(e) {
             <input id="age" name="age" placeholder="Содержимое">
             <input id="status" name="status" placeholder="Дополнительная пометка">
             <input type="submit" id='saveChanges' data-numb="${e.target.dataset.numb}" value='Сохранить изменения'>
+            <button id='skipChanges' data-numb="${e.target.dataset.numb}">X</button>
             </form>
         `
         formContainer.innerHTML = correctForm;

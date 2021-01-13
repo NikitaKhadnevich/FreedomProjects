@@ -4,3 +4,7 @@
    border-radius: 5px;
    max-width: 100%;
 }
+
+body {
+   background-color: beige;
+}
