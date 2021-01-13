@@ -77,6 +77,7 @@ window.onload = function() {
       monthName.style.marginBottom = '10px';
       monthName.style.marginLeft = '10px';
       bodyCalendar.style.marginRight = '10px';
+      console.log(this.month)
     } else {
       calendar.innerHTML = `Увы, Это не тот год`
     };

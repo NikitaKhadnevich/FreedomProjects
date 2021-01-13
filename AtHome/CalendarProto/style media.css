@@ -1,0 +1,71 @@
+@media  screen and (max-width: 900px) {
+table {
+    width: 350px; 
+min-width: 350px;}
+}  
+
+@media  screen and (max-width: 700px) {
+table {
+    width: 250px; 
+min-width: 250px;}
+}
+
+@media  screen and (max-width: 600px) {
+   #years {
+    display: grid;
+    justify-content: space-around;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);}
+
+    #years > a {
+      margin: 5px;
+      padding: 5px;
+    }
+   
+    #years :last-child {
+    font-size: 10px;  
+      }
+   
+
+   table {
+      width: 370px; 
+      min-width: 370px;}
+
+   #month {
+      display: grid;
+      justify-content: normal !important;
+   }
+   #monthName {
+      min-height: 140px;
+      width: 95% !important;
+      margin: 0 auto !important;
+      padding: 0px !important;
+      margin-top: 5px !important;
+   }
+   #bodyCalendar {
+      display: flex;
+      justify-content: center;
+      height: auto;
+      width: 100%;
+      min-height: 150px !important;
+      margin-right: 0 !important;
+      }
+   #calendar {
+      height: auto;
+   }
+   #but1, #but2 {
+      display: flex;
+      align-self: center;
+      }
+   }
+
+@media  screen and (max-width: 500px) {
+   table {
+   width: 150px; 
+   min-width: 150px;}
+
+   #years :last-child {
+   display: flex;
+   align-items: center;
+   }
+}
