@@ -8,3 +8,8 @@
 body {
    background-color: beige;
 }
+
+
+.MainContainer {
+   position: absolute;
+}  

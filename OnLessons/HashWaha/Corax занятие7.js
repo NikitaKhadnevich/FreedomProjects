@@ -7,7 +7,7 @@ window.onload = function () {
 
 
 const nav = document.getElementById('nav')
-const twoblock = document.getElementById('twoblock'); /*Задаю харты HTML*/
+const twoblock = document.getElementById('twoblock'); /*Задаю харды HTML*/
 
 
 nav.addEventListener('click', handleClick); /*Приклике на всему NAV выводить функцию*/
@@ -74,17 +74,13 @@ function render () { /*Вот и сама функция*/
 		 			<button id="incrementCount">+</button>
 		 		</div>`;
 		 	}
-
-
 }	 		
-
-
 render()
 
 
 function createInitSlider() {
 	const incrCount = document.getElementById('incrementCount');
-    const decrCount = document.getElementById('decrementCount');
+   const decrCount = document.getElementById('decrementCount');
 
 	incrCount.addEventListener('click', incrementCount);
 	decrCount.addEventListener('click', decrementCount);
@@ -115,8 +111,7 @@ function createInitSlider() {
 	  const img = `<img src="${mySlide}">`
 	  const myImg = document.getElementById('myImg');
 	  myImg.innerHTML = img;
-}
-
+	}
 }
 
 }

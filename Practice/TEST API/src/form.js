@@ -1,9 +1,12 @@
-l = (result) => {
-   console.log(result);
-}// 
+
+// l = (result) => {
+//     console.log(result);
+//  }// 
+
+window.onload = function() {
 
 let container = document.querySelector('.container');
-let user = document.querySelector('.user');
+let wrapper = document.querySelector('.wrapper');
 let formContainer = document.querySelector('.formContainer')
 
 let baseURL = 'http://localhost:3000/users'
@@ -34,35 +37,41 @@ function letPOST(URL, obj) {
 }
 //________________________________________//
 
-
-async function putformUser(e) {
+function createPatchUserForm(e) {
     e.preventDefault();
     if(e.target.id === 'putBut') {
-        let myUsers = await getUsers(baseURL)
-        for (let index = 0; index < myUsers.length; index++) {
-            let elem =  myUsers[index];
-            let correctForm = `
-            <form name="person" id="persons">
-            <input id="names" name="name" placeholder="Название заметки">
-            <input id="age" name="age" placeholder="Содержимое">
-            <input id="status" name="status" placeholder="Дополнительная пометка">
-            <input type="submit" id='saveChanges' data-numb="${e.target.dataset.numb}" value='Сохранить изменения'>
-            <button id='skipChanges' data-numb="${e.target.dataset.numb}">X</button>
-            </form>
+        function createCoord(e) {
+            return dataY = `${e.pageY-65}px`
+        }
+        addWrapper()
+        let correctForm = `
+        <form name="person" id="persons">
+        <input id="names" name="name" placeholder="Название заметки">
+        <input id="age" name="age" placeholder="Содержимое">
+        <input id="status" name="status" placeholder="Дополнительная пометка">
+        <input type="submit" id='saveChanges' data-numb="${e.target.dataset.numb}" value='Сохранить изменения'>
+        <button id='skipChanges' data-numb="${e.target.dataset.numb}">X</button>
+        </form>
         `
         formContainer.innerHTML = correctForm;
-        }
+        let divFormStyle = formContainer.style
+        divFormStyle.opacity = '1'   
+        divFormStyle.position = 'absolute'
+        divFormStyle.left = '81px'
+        divFormStyle.top = createCoord(e)
+        divFormStyle.zIndex = '2'
+        divFormStyle.opacity = '1'
+        divFormStyle.transition = '0.4s'
     }
 }
-
-container.addEventListener('click', putformUser)
+container.addEventListener('click', createPatchUserForm)
 
 function letPATCH(URL, obj, id) {
     return axios.patch(`${URL}` + `/` + `${id}` , obj)
     .then(res => {
     console.log(res); // Результат ответа от сервера
     })
-    .catch(err => new Error('Ошибка в запросе PUT'));
+    .catch(err => new Error('Ошибка в запросе PATCH'));
 }
 
 function createValueAccums(obj) {
@@ -85,41 +94,57 @@ function checkForm(correctForm) {
     return correctForm
 }
 
+function addWrapper() {
+    wrapper.style.background = 'rgb(2,0,36)'
+    wrapper.style.background = 'linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(115,114,95,1) 100%)'
+    wrapper.style.opacity = '0.7'
+    wrapper.style.transition = '0.2s'
+    wrapper.style.filter = 'blur(1px)'
+}
+
+function skipWrapper() {
+    wrapper.style.background = 'none'
+    wrapper.style.opacity = '1'
+    wrapper.style.filter = 'none'
+}
+
 async function saveChanges(e, correctForm) {
     e.preventDefault();
+    let myDataSet = e.target.dataset.numb
     if(e.target.id === 'saveChanges') {
         correctForm = {}
         createValueAccums(correctForm);
         checkForm(correctForm)
-        await letPATCH(baseURL, correctForm, e.target.dataset.numb);
+        await letPATCH(baseURL, correctForm, myDataSet);
         await getUsers(baseURL);
         renderUser()
-        formContainer.innerHTML = ''
-    if (e.target.id === 'skipChanges') {
+        skipWrapper()
         formContainer.innerHTML = ''
     }
+    if (e.target.id === 'skipChanges') {
+        formContainer.innerHTML = ''
+        skipWrapper()
+    }
 }
-}
-
 formContainer.addEventListener('click', saveChanges)
+
 //________________________________________//
 
-async function letDELETE(URL, id) {
+function letDELETE(URL, id) {
     return axios.delete(`${URL}` + `/` + `${id}`)
     .then(res => console.log(res))
     .catch(err => new Error('Ошибка в запросе DELETE'))
 }
 
-async function deleteUser(e, myForm) {
+async function deleteUser(e) {
     e.preventDefault();
     if(e.target.id === 'delBut') {
         let event = e.target.dataset.numb
         letDELETE(baseURL, event);
+        await getUsers(baseURL);
+        renderUser()
     }
-    await getUsers(baseURL);
-    renderUser()
 }
-
 container.addEventListener('click', deleteUser)
 //________________________________________//
 
@@ -139,23 +164,16 @@ async function renderUser() {
     for (let index = 0; index < myUsers.length; index++) {
         let elem =  myUsers[index];
         let segment = 
-            `<div class="user" data-numb="${elem.id}">
-            <h2>${elem.name}</h4>
-            <h4>${elem.age}</h4>
-            <h4>${elem.status}</h4>
-            <button id="delBut" data-numb="${elem.id}">Удалить</button>
-            <button id="putBut" data-numb="${elem.id}">Исправить</button>            
-            </div>`;
+            `<div class="user${elem.id}" id="user${elem.id}" data-numb="${elem.id}">
+                <h2>${elem.name}</h4>
+                <h4>${elem.age}</h4>
+                <h4>${elem.status}</h4>
+                <button id="delBut" data-numb="${elem.id}">Удалить</button>
+                <button id="putBut" data-numb="${elem.id}">Исправить</button>        
+            </div>`
         html = html + segment
-        container.innerHTML = html;
-    }
+        }
+    container.innerHTML = html;
 }
 renderUser()
-getUsers(baseURL)
-
-
-
-
-
-
-
+}

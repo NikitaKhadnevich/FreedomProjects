@@ -5,7 +5,6 @@ const createReview = (e) => {
    const [form] = document.forms;
    const data = [...form].reduce((obj, input) => {
       obj[input.name] = input.value
-      
       return obj;
    }, {});
    client.reviews.createReview(data);
