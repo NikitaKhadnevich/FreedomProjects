@@ -1,4 +1,4 @@
-export class ReviewsClient {
+class ReviewsClient {
    constructor(client) {
          this.client = client
    }

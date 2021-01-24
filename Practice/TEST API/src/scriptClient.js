@@ -1,4 +1,4 @@
-import Client from './indexClient'
+// import Client from './indexClient'
 
 // l = (result) => {
 //     console.log(result);
@@ -155,19 +155,16 @@ container.addEventListener('click', deleteUser)
 async function renderUser() {
     var myUsers = await client.reviews.getReview(client.baseUrl);
     console.log(myUsers)
-    var html = ''
-    for (let index = 0; index < myUsers.length; index++) {
-        let elem =  myUsers[index];
-        let segment = 
-            `<div class="user${elem.id}" id="user${elem.id}" data-numb="${elem.id}">
-                <h2>Название: ${elem.name}</h4>
-                <h4>Краткое содержание: ${elem.age}</h4>
-                <h4>Сложность:  ${elem.status}</h4>
-                <button id="delBut" data-numb="${elem.id}">Удалить</button>
-                <button id="putBut" data-numb="${elem.id}">Исправить</button>        
-            </div>`
-        html = html + segment
-        }
+        const html = myUsers.reduce((accum, item, index) => {
+            return (accum + 
+                `<div class="user${item.id}" id="user${item.id}" data-numb="${item.id}">
+                <h2>Название: ${item.name}</h4>
+                <h4>Краткое содержание: ${item.age}</h4>
+                <h4>Сложность:  ${item.status}</h4>
+                <button id="delBut" data-numb="${item.id}">Удалить</button>
+                <button id="putBut" data-numb="${item.id}">Исправить</button>        
+            </div>`)
+    }, '')
     container.innerHTML = html;
 }
 renderUser()

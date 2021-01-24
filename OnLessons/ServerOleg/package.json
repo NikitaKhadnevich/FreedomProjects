@@ -1,9 +1,0 @@
-{
-  "name": "gitdirect",
-  "main": "main1.js",
-  "scripts": {
-    "start-db": "json-server --watch db.json"
-  },
-  "author": "",
-  "license": "ISC"
-}

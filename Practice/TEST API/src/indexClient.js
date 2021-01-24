@@ -1,6 +1,6 @@
 imperorUrl = 'http://localhost:3000/users';
-import RestClient from './RestClient'
-import { ReviewsClient } from './ReviewsClient'
+// import RestClient from './RestClient'
+// import { ReviewsClient } from './ReviewsClient'
 
 class Client {
    constructor() {
@@ -9,4 +9,4 @@ class Client {
       this.reviews = new ReviewsClient(this.rest);
    }
 };
-export default Client
+// export default Client

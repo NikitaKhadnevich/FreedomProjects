@@ -30,13 +30,15 @@ l = (result) => {
 // l(sumEvenArguments(1, 2, 3, 88)) // 8
 
 // .2 _________________________________________________________
-// var elem = document.getElementById('elem');
+// var elem = document.getElementById('elem1');
+// var elem2 = document.getElementById('elem2');
+// var elem3 = document.getElementById('elem3');
 
 // function func() {
-//       alert(this.value);
+//    l(this.value);
 // }
 
-// func.call(elem) /* Вызавать func ИСПОЛЬЗУЯ КОНТЕКСТ elem */
+// func.call(elem) /* func вызывается - ИСПОЛЬЗУЯ КОНТЕКСТ(значение this) - elem */
 // let func2 = func.bind(elem)
 // func2()
 
@@ -45,7 +47,7 @@ l = (result) => {
 // var elem2 = document.getElementById('elem2');
 
 // function func3(surname, name) {
-//    alert(this.value + ', ' + surname + ' ' + name);
+//    l(this.value + ', ' + surname + ' ' + name);
 // }
 // func3.call(elem2, 'Иван', 'Иванов') /* Вызываем func3 ИСПОЛЬЗУЯ КОНТЕКСТ elem2 и добавляем АРГУМЕНТЫ*/
 
@@ -53,16 +55,16 @@ l = (result) => {
 // var elem2 = document.getElementById('elem2');
 
 // function func3(surname, name) {
-//    alert(this.value + ', ' + surname + ' ' + name);
+//    l(this.value + ', ' + surname + ' ' + name);
 // }
 // func3.apply(elem2, ['Иван', 'Иванов']) /* Вызываем func3 ИСПОЛЬЗУЯ КОНТЕКСТ elem2 и добавляем АРГУМЕНТЫ*/
 
 
 {/* 4. _________________________________________________________  */ }
-//    var elem3 = document.getElementById('elem3');
+// var elem3 = document.getElementById('elem3');
 
 // function func(surname, name) {
-//       alert(this.value + ', ' + surname + ' ' + name);
+//    l(this.value + ', ' + surname + ' ' + name);
 // }
 
 // var hello = func.bind(elem3, 'Иванов', 'Иван')
@@ -72,14 +74,62 @@ l = (result) => {
 
 {/* 4. _________________________________________________________  */ }  
 
-
-class Person {
-   constructor(firstName, lastName) {
-      this.firstName = firstName;
-      this.lastName = lastName;
+const hum = {
+   name: 'Alex',
+   age: 25,
+   logInfo: function(job, phone) {
+      console.group(`${this.name} info:`)
+      console.log(`My name is ${this.name}`)
+      console.log(`My age is ${this.age}`)
+      console.log(`My Job is ${job}`)
+      console.log(`My phones is ${phone}`)
+      console.groupEnd()
    }
 }
+// hum.logInfo('backer', 1488)
 
-let person = new Person('Brad', 'Pitt');
+const Ann = {
+   name: 'Anna',
+   age: 29,
+}
+// hum.logInfo.call(Ann, 'Front', 455)
+// hum.logInfo.apply(Ann, ['Front', 455]) 
+//let AnnLog = hum.logInfo.bind(Ann, 'Front', 455); AnnLog()
+// вызвать hum.loginfo - используя контекст(this) - Ann
 
-console.log(person); //
+// Не стоит забывать про потерю контекста при вызове на динамических обработчиках
+// (addEventListener). Пример
+
+var obj = {
+   name: 'build',
+   date: 1987,
+   info() {
+      l(`${this.name} at ${this.date}`)
+   }
+}
+obj.info()
+
+const button = document.getElementById('list')
+l(button)
+
+button.addEventListener('click' , obj.info) // Получим undefind
+// для передачи НУЖНО оборачивать в функцию чтобы было ЗАМЫКАНИЕ:
+button.addEventListener('click' , function handleClick() {
+   obj.info()
+})
+
+
+
+
+
+
+// class Person {
+//    constructor(firstName, lastName) {
+//       this.firstName = firstName;
+//       this.lastName = lastName;
+//    }
+// }
+
+// let person = new Person('Brad', 'Pitt');
+
+// console.log(person); //
