@@ -1,6 +1,62 @@
+
+
+.wrapper, body{
+   margin: 0 auto;
+   width: 85%;
+}
+
+.addPerson {
+   margin: 0 auto;
+   margin-top: 10px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+
+}
+
 .MainContainer {
    position: absolute;
 }
+
+.container {
+   background-color: whitesmoke;
+   padding: 10px;
+   margin-top: 10px;
+   border-radius: 15px;
+}
+
+.container > div {
+   background-color:thistle;
+   padding: 10px;
+   margin: 15px;
+   border-radius: 15px;
+}
+
+.container > div:hover {
+   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+   transition: .3s;
+}
+
+#putBut, #delBut {
+   padding: 5px;
+   border-radius: 10px;
+   transition: .3s;
+}
+
+#putBut:hover, #delBut:hover {
+   background-color:thistle;
+   font-size: .9em;
+   transition: .3s;
+   color: whitesmoke;
+}
+
+
+
+/* .container > div:nth-child(1) {
+   margin-top: 0px;
+   background-color: red;
+} */
+
 
 html {
    font-family: 'Lora', sans-serif;
@@ -12,10 +68,13 @@ body {
    background-color: thistle;
 }
 
+.form > input {
+   width: 400px;
+}
+
 #person > input,textarea {
    background-color: whitesmoke;
    padding: 10px;
-   margin:10px 0;
    box-shadow:0 5px 15px 4px rgba(0,0,0,0.06);
    border-radius: 11px;
    border:0;
@@ -34,4 +93,14 @@ body {
    border:0;
    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
    height:100%;
+}
+
+#persons > input,textarea {
+   background-color: whitesmoke;
+   padding: 10px;
+   box-shadow:0 5px 15px 4px rgba(0,0,0,0.06);
+   border-radius: 11px;
+   border:0;
+   border-bottom:1px solid #eee;
+   max-width: 100%;
 }

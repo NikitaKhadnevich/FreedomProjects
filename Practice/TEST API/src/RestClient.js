@@ -10,17 +10,13 @@ class RestClient {
 
    letPOST(baseUrl, obj) {
       return axios.post(baseUrl, obj)
-      .then(res => {
-         console.log(res); // Результат ответа от сервера
-      })
+      .then(res => console.log(res)) // Результат ответа от сервера)
       .catch(err => new Error('Ошибка в запросе POST'));
    }
 
    letPATCH(baseUrl, obj, id) {
       return axios.patch(`${baseUrl}` + `/` + `${id}` , obj)
-      .then(res => {
-         console.log(res); // Результат ответа от сервера
-         })
+      .then(res => console.log(res)) // Результат ответа от сервера
       .catch(err => new Error('Ошибка в запросе PATCH'));
    }  
    
@@ -32,3 +28,12 @@ class RestClient {
 }
 
 // export default RestClient;
+
+const LetGET = (baseUrl) => {
+   return axios.get(baseUrl)
+   .then(res => console.log(res.data.title))
+   .catch(err => new Error('Ошибка в запросе GET'));
+}
+let myURL = 'https://jsonplaceholder.typicode.com/todos/1'
+
+LetGET(myURL)

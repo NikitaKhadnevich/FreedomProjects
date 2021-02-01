@@ -61,11 +61,11 @@ function  renderPatch(e, taraget) {
     let divFormStyle = mainContainer.style
     divFormStyle.opacity = '1'   
     divFormStyle.position = 'absolute'
-    divFormStyle.left = '81px'
+    divFormStyle.left = '30%'
     divFormStyle.top = createCoord(e)
     divFormStyle.zIndex = '2'
     divFormStyle.opacity = '1'
-    divFormStyle.transition = '0.4s'
+    divFormStyle.transition = '0.3s'
 
     async function saveChanges(e, correctForm) {
         e.preventDefault();
@@ -122,11 +122,9 @@ function checkForm(correctForm) {
 }
 
 function addWrapper() {
-    wrapper.style.background = 'rgb(2,0,36)'
-    wrapper.style.background = 'linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(115,114,95,1) 100%)'
     wrapper.style.opacity = '0.7'
-    wrapper.style.transition = '0.2s'
-    wrapper.style.filter = 'blur(1px)'
+    wrapper.style.transition = '0.1s'
+    wrapper.style.filter = 'blur(2px)'
 }
 
 function skipWrapper() {
