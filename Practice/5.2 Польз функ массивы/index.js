@@ -61,21 +61,21 @@ l = (result) => {
 // 2. РЕВЕРС СТРОКИ
 // 3. ДЖОИН
 
-let numberStr = '123456'
-let arr = numberStr.split('')
-newArrs = []
+// let numberStr = '123456'
+// let arr = numberStr.split('')
+// newArrs = []
 
-function name(arr, newArr, counter) {
-      newArr = arr.map((elem, i) => { 
-      while (newArr.length < 6) {
-         newArr.push(i + counter)
-         newArr.push(i+1)
-         i += 2
-      }
-      l(newArr)
-   });
-}
-name(arr, newArrs, 2)
+// function name(arr, newArr, counter) {
+//       newArr = arr.map((elem, i) => { 
+//       while (newArr.length < 6) {
+//          newArr.push(i + counter)
+//          newArr.push(i+1)
+//          i += 2
+//       }
+//       l(newArr)
+//    });
+// }
+// name(arr, newArrs, 2)
 
 
 

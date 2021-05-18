@@ -29,7 +29,6 @@ function createValueAccum(obj, name) {
         obj[key] = value;
     });
 }
-send.addEventListener('click', createNewUser);
 
 async function createNewUser(e, myForm) {
     myForm = {}
@@ -39,6 +38,7 @@ async function createNewUser(e, myForm) {
     await client.reviews.getReview(client.baseUrl)
     renderUser()
 }
+send.addEventListener('click', createNewUser);
 
 //________________________________________//
 
@@ -103,6 +103,7 @@ container.addEventListener('click', callPatchForm)
 
 function createValueAccums(obj) {
     var formData = new FormData(document.forms.persons);
+    console.log('formData', formData)
     formData.forEach(function(value, key){
         obj[key] = value;
     });

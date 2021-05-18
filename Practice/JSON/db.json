@@ -1,32 +1,10 @@
 {
   "users": [
     {
-      "name": "",
-      "age": "dddd",
-      "status": "",
-      "id": 1
-    },
-    {
-      "name": "GOdZila",
-      "age": 228,
-      "id": 2
-    },
-    {
-      "name": "Enotik",
-      "age": 25,
-      "status": "Poloskun",
-      "id": 3
-    },
-    {
-      "name": "Zigota",
-      "age": "318",
-      "id": 4
-    },
-    {
       "name": "Иван",
-      "age": "",
-      "status": "",
-      "id": 5
+      "age": "ASDASDASD",
+      "status": "f",
+      "id": 1
     }
   ]
 }

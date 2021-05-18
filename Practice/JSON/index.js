@@ -143,7 +143,7 @@ async function deleteFetch(method, url, id) {
       throw new Error('Network Error')
    }
 }
-// deleteFetch('delete', 'http://localhost:3000/users', )
+// deleteFetch('delete', 'http://localhost:3000/users', 5)
 // .then(data => l(data))
 // .catch(error => l(error.status))
 

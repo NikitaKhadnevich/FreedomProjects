@@ -30,40 +30,40 @@ l = (result) => {
 //    await new Promise((resolve, reject) => setTimeout(resolve, ms));
 //    await l(frst+1)
 //    await new Promise((resolve, reject) => setTimeout(resolve, ms));
-//    await l(3)
+//    await l(frst+2)
 // }
 // time(2000) 
 
 // 3._________________________________________________________
 
-// function createGenerator() {
-//    l('Start Number Generator...')
-//    number = Math.ceil(Math.random()*10)
-//    return number 
-// }
+function createGenerator() {
+   l('Start Number Generator...')
+   number = Math.ceil(Math.random()*10)
+   return number 
+}
 
-// let promise = new Promise((resolve, reject) => {
-//    createGenerator()
-//    if (number > 1 && number < 6) {
-//       setTimeout(() => {
-//          resolve()
-//       }, 2000);
+let promise = new Promise((resolve, reject) => {
+   createGenerator()
+   if (number > 1 && number < 6) {
+      setTimeout(() => {
+         resolve()
+      }, 2000);
       
-//    } else {
-//       setTimeout(() => {
-//          reject()
-//       }, 2000);
-//    }
-// })
-// promise
-// .then(() => l(`${number} - Correct number`))
-// .then(() => new Promise((resolve, reject) => {
-//       setTimeout(() => {
-//          resolve()
-//       }, 2000);
-// }))
-// .then(() => l('I want some noise'))
-// .catch(() => l(`${number} - Wrong number`))
+   } else {
+      setTimeout(() => {
+         reject()
+      }, 2000);
+   }
+})
+promise
+.then(() => l(`${number} - Correct number`))
+.then(() => new Promise((resolve, reject) => {
+      setTimeout(() => {
+         resolve()
+      }, 2000);
+}))
+.then(() => l('I want some noise'))
+.catch(() => l(`${number} - Wrong number`))
 // 4. _________________________________________________________
 // const promise = new Promise((resolve, reject) => {
 //    setTimeout(() => {

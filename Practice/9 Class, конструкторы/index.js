@@ -65,42 +65,43 @@ l = (result) => {
 // myCamera.showStatus()
 // _____________________________________________ 
 
-// class Animal {
-//    constructor(predator, herbivores) {
-//       this.type = predator;
-//    }
-// }
+class Animal {
+   constructor(predator, herbivores) {
+      this.type = predator;
+   }
+}
 
-// class Cat extends Animal {
-//    constructor(type, kind, name, age) {
-//       super(type);
-//       this.kind = kind;
-//       this.name = name;
-//       this.age = age;
-//    }
-// }
+class Cat extends Animal {
+   constructor(type, kind, name, age) {
+      super(type);
+      this.kind = kind;
+      this.name = name;
+      this.age = age;
+   }
+}
 
-// class Dog extends Animal {
-//    constructor(type, kind, name, age) {
-//       super(type);
-//       this.kind = kind;
-//       this.name = name;
-//       this.age = age;
-//    }
-// }
+class Dog extends Animal {
+   constructor(type, kind, name, age) {
+      super(type);
+      this.kind = kind;
+      this.name = name;
+      this.age = age;
+   }
+}
 
-// class Cow extends Animal {
-//    constructor(type, kind, name, age) {
-//       super(type);
-//       this.kind = kind;
-//       this.name = name;
-//       this.age = age;
-//    }
-// }
+class Cow extends Animal {
+   constructor(type, kind, name, age) {
+      super(type);
+      this.kind = kind;
+      this.name = name;
+      this.age = age;
+   }
+}
 
-// let cat = new Cat('Хищник', 'Кот', 'Барсик', 5)
-// let dog = new Dog('Хищник', 'Собака', 'Бим', 8)
-// let cow = new Cow('Травоядная', 'Корова', 'Савушка', 14)
+let cat = new Cat('Хищник', 'Кот', 'Барсик', 5)
+let dog = new Dog('Хищник', 'Собака', 'Бим', 8)
+let cow = new Cow('Травоядная', 'Корова', 'Савушка', 14)
+console.table(`cat, dog, cow`, cat, dog, cow)
 
 // Animal.prototype.createAgeCount = function() { /* Нужно подумать, а не дбавить ли в прототип КЛАССА функцию?? */
 //    for (var prop in this) {
@@ -179,28 +180,27 @@ l = (result) => {
 
 // .3 MyString _________________________________________________________
 
-// class MyString {
-//    constructor() {
+class MyString {
+   constructor() {
 
-//    }
-// }
-// MyString.prototype.reverse = function(string) {
-//   return string.split('').reverse().join('');
-// }
+   }
+}
+MyString.prototype.reverse = function(string) {
+  return string.split('').reverse().join('');
+}
+MyString.prototype.ucFirst = function(string) {
+   return string[0].toUpperCase() + string.slice(1);
+}
+MyString.prototype.ucWords = function(string) {
+   return string.toLowerCase().split(' ')   
+   .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+   .join(' ');
+};
 
-// MyString.prototype.ucFirst = function(string) {
-//    return string[0].toUpperCase() + string.slice(1);
-// }
-// MyString.prototype.ucWords = function(string) {
-//    return string.toLowerCase().split(' ')   
-//    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-//    .join(' ');
-// };
-
-// let str = new MyString()
-// // l(str.ucWords('abc abcd abcde'))
-// // l(str.reverse('abcde'))
-// // l(str.ucFirst('abcde'))
+let str = new MyString()
+l(str.reverse('abcde'))
+l(str.ucWords('abc abcd abcde'))
+l(str.ucFirst('abcde'))
 
 // // .3 Validator _________________________________________________________
 
@@ -249,10 +249,10 @@ l = (result) => {
 
 // let valid = new Validator
 // valid.isPhone('+375 (29) 154-23-45')
-let a, b, c, x, y, z;
+// let a, b, c, x, y, z;
 
-[a, b] = [c] = [1, 2, 3, 4];
-( {x} = {y,z} = {x: 4, y: 5, z: 6} );
+// [a, b] = [c] = [1, 2, 3, 4];
+// ( {x} = {y,z} = {x: 4, y: 5, z: 6} );
 
-console.log(a, b, c); // 1 2 1
-console.log(x, y, z); // 4 5 6
+// console.log(a, b, c); // 1 2 1
+// console.log(x, y, z); // 4 5 6

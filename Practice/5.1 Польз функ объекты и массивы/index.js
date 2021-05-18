@@ -113,31 +113,31 @@ let arr2 = [
 
 const newObject = []
 
-// Object.prototype.checkNew = function (arr, newArr) {
-//       newArr = this.map(function (item, i) {
-//             if ('name' in arr[i] && 'age' in arr[i]) {
-//                return `Имя: ${item.name}, возраст: ${item.age}`
-//             } else {
-//                l(` В элементе ${i} неверное свойство имени ${[i].name}!` )
-//             }
-//          });
-//       return l(newArr);
-// }
-
-// arr1.checkNew(arr1)
-
-
-function checkNew (arr, newArr) {
-      newArr = arr.map(function (item, i) {
+Object.prototype.checkNew = function (arr, newArr) {
+      newArr = this.map(function (item, i) {
             if ('name' in arr[i] && 'age' in arr[i]) {
                return `Имя: ${item.name}, возраст: ${item.age}`
             } else {
                l(` В элементе ${i} неверное свойство имени ${[i].name}!` )
             }
          });
-      return newArr;/* !!!!!!!!!!RETURN!!!!! */
-};
-const xxx = checkNew;
-l(xxx(arr1, newObject));
+      return l(newArr);
+}
+
+arr1.checkNew(arr1)
+
+
+// function checkNew (arr, newArr) {
+//       newArr = arr.map(function (item, i) {
+//             if ('name' in arr[i] && 'age' in arr[i]) {
+//                return `Имя: ${item.name}, возраст: ${item.age}`
+//             } else {
+//                l(` В элементе ${i} неверное свойство имени ${[i].name}!` )
+//             }
+//          });
+//       return newArr;/* !!!!!!!!!!RETURN!!!!! */
+// };
+// const xxx = checkNew;
+// l(xxx(arr1, newObject));
 
 

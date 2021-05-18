@@ -33,10 +33,11 @@ l = (result) => {
 // var elem = document.getElementById('elem');
 
 // function func() {
-//       alert(this.value);
+//      alert(this.value);
 // }
 
-// func.call(elem) /* Вызавать func ИСПОЛЬЗУЯ КОНТЕКСТ elem */
+// func.call(elem) 
+// /* Вызавать func ИСПОЛЬЗУЯ КОНТЕКСТ elem */
 // let func2 = func.bind(elem)
 // func2()
 
@@ -47,7 +48,9 @@ l = (result) => {
 // function func3(surname, name) {
 //    alert(this.value + ', ' + surname + ' ' + name);
 // }
-// func3.call(elem2, 'Иван', 'Иванов') /* Вызываем func3 ИСПОЛЬЗУЯ КОНТЕКСТ elem2 и добавляем АРГУМЕНТЫ*/
+// func3.call(elem2, 'Иван', 'Иванов') 
+
+/* Вызываем func3 ИСПОЛЬЗУЯ КОНТЕКСТ elem2 и добавляем АРГУМЕНТЫ*/
 
 {/* 3. _________________________________________________________  */ }
 // var elem2 = document.getElementById('elem2');

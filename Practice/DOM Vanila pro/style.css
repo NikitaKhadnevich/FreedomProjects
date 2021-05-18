@@ -1,0 +1,31 @@
+#wrapper {
+   background-color:  red;
+   width: 90%;
+   height: 100%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-around
+}
+
+.header {
+   border: solid 3px black;
+   padding: 10px;
+   background-color: gray;
+}
+.header--success {
+   border-color: white;
+
+}
+.header--error {
+   border-color: green;
+}
+
+#article {
+   background-color: rgb(160, 242, 157);
+   margin: 10px;
+}
+
+#article > *{
+   border: 2px solid black;
+   margin: 5px;
+}
