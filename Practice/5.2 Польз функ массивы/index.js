@@ -77,7 +77,26 @@ l = (result) => {
 // }
 // name(arr, newArrs, 2)
 
+/****************ССЫЛОЧНЫЙ ТИП И ПО ЗНАЧЕНИЮ */
+//ССЫЛОЧНЫЙ
+const obj = {ann: 24, paul: 43}
+const obj2 = obj
+console.log(obj == obj2)
+console.log(obj === obj2)
+obj.roy = 40
 
+// console.log(obj == obj2)
+// console.log(obj === obj2) 
+// Ибо ссылаются на один и тот же объект!
+
+// ПО ЗНАЧЕНИЮ
+let a = 23
+let b = a
+console.log(a === b)
+console.log(a == b)
+a = 44
+console.log(a === b)
+console.log(a == b)
 
 
 

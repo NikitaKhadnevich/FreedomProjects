@@ -1,8 +1,4 @@
 
-// l = (result) => {
-//     console.log(result);
-//  }// 
-
 window.onload = function() {
 
 let container = document.querySelector('.container');

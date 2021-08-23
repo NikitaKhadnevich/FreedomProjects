@@ -38,8 +38,8 @@ describe('when substract is a func with params "a" and "b"', () => {
       expect(substract(a, b)).toBeLessThan(b);
    });
    it('should return result GREATER than second arg', () => {
-      a = 1; b = 3;
-      expect(substract(a, b)).toBeGreaterThan(a);
+      a = 10; b = 3;
+      expect(substract(a, b)).toBeGreaterThan(b);
    });       
    it('should return Not a Number', () => {
       a = 'string'; b = 3;

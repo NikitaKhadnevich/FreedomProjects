@@ -33,7 +33,7 @@ l = (result) => {
 // var elem = document.getElementById('elem');
 
 // function func() {
-//      alert(this.value);
+//    console.log(this.value);
 // }
 
 // func.call(elem) 
@@ -46,7 +46,7 @@ l = (result) => {
 // var elem2 = document.getElementById('elem2');
 
 // function func3(surname, name) {
-//    alert(this.value + ', ' + surname + ' ' + name);
+//    console.log(this.value + ', ' + surname + ' ' + name);
 // }
 // func3.call(elem2, 'Иван', 'Иванов') 
 
@@ -56,16 +56,17 @@ l = (result) => {
 // var elem2 = document.getElementById('elem2');
 
 // function func3(surname, name) {
-//    alert(this.value + ', ' + surname + ' ' + name);
+//    console.log(this.value + ', ' + surname + ' ' + name);
 // }
-// func3.apply(elem2, ['Иван', 'Иванов']) /* Вызываем func3 ИСПОЛЬЗУЯ КОНТЕКСТ elem2 и добавляем АРГУМЕНТЫ*/
+// func3.apply(elem2, ['Иван', 'Иванов'])
+ /* Вызываем func3 ИСПОЛЬЗУЯ КОНТЕКСТ elem2 и добавляем АРГУМЕНТЫ*/
 
 
 {/* 4. _________________________________________________________  */ }
 //    var elem3 = document.getElementById('elem3');
 
 // function func(surname, name) {
-//       alert(this.value + ', ' + surname + ' ' + name);
+//       console.log(this.value + ', ' + surname + ' ' + name);
 // }
 
 // var hello = func.bind(elem3, 'Иванов', 'Иван')
@@ -75,14 +76,23 @@ l = (result) => {
 
 {/* 4. _________________________________________________________  */ }  
 
+// const btn = document.getElementById('btn')
+// class Person {
+//    constructor(firstName, lastName) {
+//       this.firstName = firstName;
+//       this.lastName = lastName;
+//    }
 
-class Person {
-   constructor(firstName, lastName) {
-      this.firstName = firstName;
-      this.lastName = lastName;
-   }
-}
+//    doCall() {
+//       console.log(this.firstName)
+//    }
+// }
+// let person = new Person('Brad', 'Pitt');
+// console.log(person); //
 
-let person = new Person('Brad', 'Pitt');
+// btn.addEventListener('click', () => {
+//    person.doCall()
+// }) // Или через стрелки
 
-console.log(person); //
+// btn.addEventListener('click', 
+//    person.doCall.bind(person)) // Или по классике контекст

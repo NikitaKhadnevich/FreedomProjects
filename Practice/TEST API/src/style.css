@@ -1,17 +1,35 @@
+html {
+   font-family: 'Lora', sans-serif;
+   width: 100%;
+}
 
+body {
+   width: 95%;
+   background-color: rgba(0, 0, 0, 0.8);
+}
 
 .wrapper, body{
    margin: 0 auto;
-   width: 85%;
 }
 
 .addPerson {
    margin: 0 auto;
-   margin-top: 10px;
+   margin-top: 30px;
    width: 100%;
    display: flex;
    justify-content: center;
+}
 
+#person {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+   justify-content: space-between;
+   margin: 0 auto;
+   width: 100%;
+}
+
+#person > input{
+   margin: 5px;
 }
 
 .MainContainer {
@@ -26,7 +44,7 @@
 }
 
 .container > div {
-   background-color:thistle;
+   background-color:rgb(205, 233, 255);
    padding: 10px;
    margin: 15px;
    border-radius: 15px;
@@ -40,36 +58,23 @@
 #putBut, #delBut {
    padding: 5px;
    border-radius: 10px;
-   transition: .3s;
+   transform: 0.5;
 }
 
-#putBut:hover, #delBut:hover {
-   background-color:thistle;
+#skipChanges , #saveChanges {
+   transition: .5s;
+}
+
+#putBut:hover, #delBut:hover , #skipChanges:hover, #saveChanges:hover{
    font-size: .9em;
    transition: .3s;
-   color: whitesmoke;
+   background-color: rgba(0, 0, 0, 0.8);
+   color:rgb(205, 233, 255);
+   transform: 0.5;
 }
 
-
-
-/* .container > div:nth-child(1) {
-   margin-top: 0px;
-   background-color: red;
-} */
-
-
-html {
-   font-family: 'Lora', sans-serif;
-   width: 100%;
-}
-
-body {
-   width: 90%;
-   background-color: thistle;
-}
-
-.form > input {
-   width: 400px;
+#delBut:hover , #skipChanges:hover{
+   color:rgb(255, 171, 161);
 }
 
 #person > input,textarea {
@@ -93,6 +98,11 @@ body {
    border:0;
    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
    height:100%;
+}
+
+#persons > input{
+   margin: 5px;
+   margin-right: 30px
 }
 
 #persons > input,textarea {

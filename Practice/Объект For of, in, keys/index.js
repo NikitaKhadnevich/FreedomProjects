@@ -7,22 +7,22 @@ l = (result) => {
 // 1.
 
 //FOR IN - Проходит по объекту и выводит ЗНАЧЕНИЕ объекта
-const obj = {
-   a: 1,
-   b: 2,
-   c: 'Max'
-}
+// const obj = {
+//    a: 1,
+//    b: 2,
+//    c: 'Max'
+// }
 
-const addArr = () => {
-let wantArr = []
-   for (let index in obj) {
-      console.log(obj[index]) // 1, 2, "Max"
-      wantArr.push(obj[index])
-   }
-   console.log('wantArr',  wantArr)
-   return wantArr
-}
-addArr()
+// const addArr = () => {
+// let wantArr = []
+//    for (let index in obj) {
+//       console.log(obj[index]) // 1, 2, "Max"
+//       wantArr.push(obj[index])
+//    }
+//    console.log('wantArr',  wantArr)
+//    return wantArr
+// }
+// addArr()
 
 // const easyArr = Object.values(obj)
 // console.log(`easyArr`, easyArr) // Так это можно сделать через Object values
@@ -49,28 +49,28 @@ let salaries = {
    Valik: 'Нет данных',
    Alfred: 130,
 }
-// let max = []
+let max = []
 
-// function getSumSalaries (obj, arr) {
-//    arr = []
-//    let sum = 0;
-//    if (Object.keys(obj).length !== 0) {
-//       for (let key in obj) {
-//          arr.push(obj[key]);  
-//       }
+function getSumSalaries (obj, arr) {
+   arr = []
+   let sum = 0;
+   if (Object.keys(obj).length !== 0) {
+      for (let key in obj) {
+         arr.push(obj[key]);  
+      }
 
-//       arr.forEach(function (item, i) {
-//          sum = sum + arr[i]
-//          return sum
-//       });
-//    return sum   
-//    } else {
-//       l('Итерируемый массив пуст')
-//    }
+      arr.forEach(function (item, i) {
+         sum += arr[i]
+         return sum
+      });
+   return sum   
+   } else {
+      l('Итерируемый массив пуст')
+   }
    
-// }
-// let xxx = getSumSalaries(salaries, max);
-// l(xxx)
+}
+let xxx = getSumSalaries(salaries, max);
+l(xxx)
 
 // const isSum = (obj, numb) => {
 //    numb = 0;

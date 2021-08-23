@@ -112,41 +112,103 @@ const log = (result) => console.log(result)
 // ___________________________________________________________
 // 7 - 8.
 
-let arr = [];
+// let arr = [];
 
-function filterArgs(arrg, elem) {
-   while (arrg.length < 100) {
-      arrg.push(++elem)
-   }
-   arrg.forEach(function (item, i) {
-      function addSomeAge(child, young, strong, old) {
-         if (arr[i] < 18 && arr[i] > 0) {
-            arr[i] = arr[i] + child;
-         }
-         if (arr[i] <= 30 && arr[i] >= 18) {
-            arr[i] = arr[i] + young;
-         }
-         if (arr[i] < 55 && arr[i] > 30) {
-            arr[i] = arr[i] + strong;
-         }
-         if (arr[i] > 50) {
-            arr[i] = arr[i] + old;
-         }
-      };
-      addSomeAge(' юный', ' молоой', ' взрослый', ' Pazhiloy Pavuk')
-   });
-}
+// function filterArgs(arrg, elem) {
+//    while (arrg.length < 100) {
+//       arrg.push(++elem)
+//    }
+//    arrg.forEach(function (item, i) {
+//       function addSomeAge(child, young, strong, old) {
+//          if (arr[i] < 18 && arr[i] > 0) {
+//             arr[i] = arr[i] + child;
+//          }
+//          if (arr[i] <= 30 && arr[i] >= 18) {
+//             arr[i] = arr[i] + young;
+//          }
+//          if (arr[i] < 55 && arr[i] > 30) {
+//             arr[i] = arr[i] + strong;
+//          }
+//          if (arr[i] > 50) {
+//             arr[i] = arr[i] + old;
+//          }
+//       };
+//       addSomeAge(' юный', ' молоой', ' взрослый', ' Pazhiloy Pavuk')
+//    });
+// }
 
 // ___________________________________________________________
 // 8.
-function getNames(name, age, arr) {
-   filterArgs(arr, 0);
-   log(arr)
-   arr.forEach(function (elem = '', i) {
-      arr[i];
-      if (age === i) {
-         console.log(`${name} имеет возраст ${age}, и он ${arr[i].replace(/[^a-zа-яё]/gi, '')}.`)
-      }
-   });
+// function getNames(name, age, arr) {
+//    filterArgs(arr, 0);
+//    log(arr)
+//    arr.forEach(function (elem = '', i) {
+//       arr[i];
+//       if (age === i) {
+//          console.log(`${name} имеет возраст ${age}, и он ${arr[i].replace(/[^a-zа-яё]/gi, '')}.`)
+//       }
+//    });
+// }
+// getNames('Max', 45, arr)
+
+// console.log([] == [])
+// console.log([] === [])
+
+// console.log(234 == 234)
+// console.log(234 == '234')
+// console.log(234 === '234')
+
+// const obj1 = {}
+// const obj2 = {}
+// console.log(obj1 == obj2)
+// console.log(obj1 === obj2)
+
+
+// let one = 1
+// {
+//    var two = 2
+// }
+// console.log(one)
+// console.log(two)
+
+
+// function qux() {
+//    var bar = 2
+// }
+// qux();
+// console.log(bar) 
+
+// function xxx (x) {
+//    return function (bar) {
+//       console.log(bar, x)
+//    }
+// }
+// xxx(2)()
+
+
+// ______________________________________
+// for (var i = 0; i < 5; i++){
+//    setTimeout(() => {
+//          console.log(i)
+//    }, 1000 * i)
+// } 
+
+// 1. Сначала запускается цикл for
+// 2. Она сразу же вызывается 5 раз - стек по сути очищается, значение i в конце становится 5!
+// 3. Затем запускается очередь из setTimeout(их 5 штук) с отложеным выводом индекса в i * 1000
+// 4. Создается очередь выбитая из стека в 5 setTimeout, которая выводит i равное 5 так как var имеет область видимости абсолютную, поэтому и выводит 5 т. к в глобальной видимости
+// 5. в Случае с let каждый раз создается переменная, которая ограничена областью видимости внутри объектаБ поэтому каждый раз будет 1, 2, 4, 5
+
+for (var i = 0; i < 5; i++) {
+   (function(x) {
+      setTimeout(() => {
+         console.log(x)
+      }, x * 1000)
+   })(i) //  
 }
-getNames('Max', 45, arr)
+
+// в этом случае создается функция, которая замыкается на области видимости самого цикла for
+// 1. Вызывается цикл фор и отрабатывает 5 раз, и очищается стек НО!
+// 2. Образуется очередь из 5 setTimeout в которых на каждый вызов самовызывающийся функции аргументом передается значение i на момент отработки цикла
+// 3. Выполняется анонимная функция с аргументами i
+// Учитывая , что область видимости setTimeout "замыкается" на function(x), в коих x каждый раз новый, на не важно var или let

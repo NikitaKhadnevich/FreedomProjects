@@ -59,24 +59,23 @@ l = (result) => {
 // }
 // getCheckFive(newArr)
 
-// let SumArr = [1, 22, 4, 'alex', 'Хорус', 12, 'serg', 154, 'Гавриил', 21, 15]
-// function getAverage(arr) {
-//    let sum = 0;
-//    let counter = 0;
-//    for (let elem of arr) {
-//       if (typeof elem == 'number') {
-//          counter++;
-//       }
-//    }
-//    arr.forEach(function (item, i) {
-//       arr[i];
-//       if (typeof arr[i] == 'number') {
-//          sum += arr[i]/counter;
-//       }
-//    });
-//    console.log(sum.toFixed(1))   
-// }
-// getAverage(SumArr);
+let SumArr = [1, 22, 4, 'alex', 'Хорус', 12, 'serg', 154, 'Гавриил', 21, 15]
+function getAverage(arr) {
+   let sum = 0;
+   let counter = 0;
+   for (let elem of arr) {
+      if (typeof elem == 'number') {
+         counter++;
+      }
+   }
+   arr.forEach((item) => {
+      if (typeof item == 'number') {
+         sum += item/counter;
+      }
+   });
+   console.log(sum.toFixed(1))   
+}
+getAverage(SumArr);
 
 // 14.
 // _______________________________________________________________
@@ -97,34 +96,33 @@ l = (result) => {
 
 // 14.
 // _______________________________________________________________
-let arr1 = [
-{name: 'Mike', age: 25,},
-{name: 'Tony', age: 34,},
-{name: 'Sara', age: 27},
-{ name: 'Chloe', age: 45, },
-{ name: 'Baks', age: 34, },
-{ name: 'Oly', age: 17 }
-]
+// let arr1 = [
+// {name: 'Mike', age: 25,},
+// {name: 'Tony', age: 34,},
+// {name: 'Sara', age: 27},
+// { name: 'Chloe', age: 45, },
+// { name: 'Baks', age: 34, },
+// { name: 'Oly', age: 17 }
+// ]
 
-let arr2 = [
-   { name: 'Mike', age: 25, },
-   { name: 'Oly', age: 17 }
-]
+// let arr2 = [
+//    { name: 'Mike', age: 25, },
+//    { name: 'Oly', age: 17 }
+// ]
 
-const newObject = []
+// const newObject = []
+// Object.prototype.checkNew = function (arr, newArr) {
+//       newArr = this.map(function (item, i) {
+//             if ('name' in arr[i] && 'age' in arr[i]) {
+//                return `Имя: ${item.name}, возраст: ${item.age}`
+//             } else {
+//                l(` В элементе ${i} неверное свойство имени ${[i].name}!` )
+//             }
+//          });
+//       return l(newArr);
+// }
 
-Object.prototype.checkNew = function (arr, newArr) {
-      newArr = this.map(function (item, i) {
-            if ('name' in arr[i] && 'age' in arr[i]) {
-               return `Имя: ${item.name}, возраст: ${item.age}`
-            } else {
-               l(` В элементе ${i} неверное свойство имени ${[i].name}!` )
-            }
-         });
-      return l(newArr);
-}
-
-arr1.checkNew(arr1)
+// arr1.checkNew(arr1)
 
 
 // function checkNew (arr, newArr) {

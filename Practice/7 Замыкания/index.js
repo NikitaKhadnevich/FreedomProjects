@@ -1,6 +1,6 @@
-l = (result) => {
-   console.log(result);
-}// 
+// l = (result) => {
+//    console.log(result);
+// }// 
 
 // .1 _________________________________________________________
 // function createCounter(counter){
@@ -24,6 +24,9 @@ l = (result) => {
 //    document.body.appendChild(newElem);
 // }
 
+// const mYbutton = document.getElementById('but')
+// console.log(`but`, mYbutton)
+
 // createName = () => {
 //    var checker = function () {
 //       a = 1;
@@ -40,12 +43,15 @@ l = (result) => {
 //    callback1
 //    callback2
 // }
-// all(Mybut('Alex', 'AlexId'), createName())
+
+// mYbutton.addEventListener('click', () => {Mybut('Alex', 'AlexId'), createName()  })
+
 
 // .3 _________________________________________________________
 
 // function filt() {
 //    let str = document.getElementsByTagName('p')
+//    console.log(`str`, str)
 //    return str
 // }
 
@@ -53,14 +59,13 @@ l = (result) => {
 //    return strArr = [...callbackFilt]
 // }
 
-// function createCheck(render) {
+// function createCheck() {
 //    let color = ['red', 'yellow', 'blue']
 //    return color.forEach((elem, item) => {
 //       return strArr.forEach((elem, i) => {
-         
 //          function render() {
 //             strArr[i].style.color = 'red';
-//          }
+//          } // Красив все надписи в красный
 
 //          return strArr[i].addEventListener('click', function () {
 //             if (item == i) {
@@ -114,29 +119,27 @@ l = (result) => {
 // .5 _________________________________________________________
 
 // let input = document.querySelectorAll('input')
+// let button = document.getElementById('but')
 
 // let arr1 = [];
 // let arr2 = [];
 // let arr3 = [];
 
-
-// val = () => {
+// function val() {
 //    for (let i = 0; i < input.length; i++) {
-//       input[i].onchange = function () {
-//          input[i].innerHTML = this.value;         
-//             if (i == 0) {
-//                arr1.push(input[i].value)
-//             }
-//             if (i == 1) {
-//                arr2.push(input[i].value)
-//             } 
-//             if (i ==2) {
-//                arr3.push(input[i].value)
-//          }
-//       }
-//    } 
-// }
-// val()
+//       const data = input[i].value
+//       i === 0 && data ? arr1.push(data) :
+//       i === 1 && data ? arr2.push(data) :
+//       i === 2 && data ? arr3.push(data) : null
+//       input[i].value = ''
+//    }
+
+//       console.log(arr1, arr2, arr3)
+//    }
+   
+//    // val()
+
+// button.addEventListener('click', val)
 
 // .6 _________________________________________________________
 
@@ -223,6 +226,10 @@ l = (result) => {
 // }
 // calcAppart(calcFloor(9, 6, 180, calcEntrance(180, 9, 6)), calcEntrance(180, 9, 6) )
 
+// function calcEntrance(numberApp, floor, appart) {
+//    sum = floor*appart
+//    return Math.ceil(numberApp / sum)
+// }
 
 // function calcFloor(floor, appart, numberApp,callback) {
 //    let sum = floor * appart;
@@ -231,32 +238,19 @@ l = (result) => {
 //    return Math.ceil((numberApp-x)/appart)
 // }
 
+const arr = [1,4,5,67,66, 222,232323,2323,32,3,23,2,32,3,2,32,3,23]
 
-// function calcEntrance(numberApp, floor, appart) {
-//    sum = floor*appart
-//    return Math.ceil(numberApp / sum)
-// }
+for (let i = 0; i < arr.length; i++) {
+   // 1 уровень замыкания - тут есть i
+   const counter = function(count) { // задача  - показать элемент в консоле (i)
+      console.log(count)
+   }
+   setTimeout(counter, 1000*i, i); // Вызываю из окружения for функцию counter, с аргументом 1000 и i
+}
 
-
-
-
-
-
-
-
-
-
-// .4 _________________________________________________________
-
-
-// .5 _________________________________________________________
-
-
-// .6 _________________________________________________________
-
-
-
-
-
-
-
+// что происходит?
+// 1. Цикл форм сразу пролетает по всем элментам массива и получет i
+// 2. стек оказывается пустым, однако в очереди висит метод setTimeout
+// 3. по сути в очереди столько setTimeout, сколько i в результате выполнения for так как setTimeout дергается с РАЗНЫМИ АРГУМЕНТАМИ (1000*i)
+// 4. НО for не очищается, ибо внутри его замкнута функция counter, которая вызывается по каждой итерации setTimeout
+// 5. вот пока она жива и for не может умереть в этом и смысл замыкания

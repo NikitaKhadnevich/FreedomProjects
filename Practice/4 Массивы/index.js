@@ -135,6 +135,27 @@ l = (result) => {
 // randomNumb(someArr, 1)
 
 
+/*******************ARROW REDUCE************ */
+const arr = [1,34, 2, 5]
+
+// arr.reduce(function(accum, item) {
+//    accum += item
+//    console.log(`accum`, accum)
+//    return accum
+// }, 0)
+const arrSumm = arr.reduce((accum, item) => (accum += item), 0)
+
+/*******************ARROW FILTER************ */
+
+// const result = arr.filter(function(item) {
+//    if(item < 30) { return item }
+// })
+const arrowResult = arr.filter(item => item < 30)
+console.log(`arr`, arrowResult)
+
+
+
+
 
 
 

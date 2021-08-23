@@ -4,39 +4,43 @@ l = (result) => {
 
 // 2. ______________________________________________________________________________
 // Классический способ написания
-// let max = {
-//    name: 222,
-//    foo() {
-//       l(this.name)
-//    }
-// }
+let max = {
+   name: 222,
+   foo() {
+      l(this.name)
+   }
+}
 
 // function Digital(type) {
 //    this.type = type
 // }
 
-// function Photo(type, mirror) {
+// function Photo(type, mirror) { // Наследуюсь от Digital
 //    Digital.apply(this, arguments);
 //    this.mirror = mirror;
 // }
-// Photo.prototype.showInfo = function() {
+// Photo.prototype.showInfo = function() { // Добавляю метод
 //    l(`Это ${this.type} и она ${this.mirror}`)
 // }
+// const motherPhoto = new Photo('non mirror', 'less mirror'); // Вывожу объект
+// console.log(motherPhoto)
+// motherPhoto.showInfo()
 
-// function PhotoPref(type, mirror, sensor, weight) {
-//    Photo.apply(this, arguments);
+// function PhotoPref(type, mirror, sensor, weight) { //Наследуюсь от Photo
+//    Photo.apply(this, arguments); 
 //    this.sensor = sensor;
 //    this.weight = weight;   
 // }
-// PhotoPref.prototype = Object.create(Photo.prototype)
-// PhotoPref.prototype.showFoo = function () {
+// PhotoPref.prototype = Object.create(Photo.prototype) //Забираю прототип
+// PhotoPref.prototype.showFoo = function () { // Дополняю свой
 //    l(max.foo.apply(max))
 // }
 
-// let myCamera = new PhotoPref('Digital Camera', 'with mirror' , 'DSLR' , '564w');
+// const myCamera = new PhotoPref('Digital Camera', 'with mirror' , 'DSLR' , '564w');
+// console.log(myCamera)
 // myCamera.showFoo()
 // myCamera.showInfo()
-// l(myCamera)
+
 
 // _____________________________________________ 
 // Переписываем на новый синтаксис
@@ -60,48 +64,54 @@ l = (result) => {
 //    l(`Статус этой камеры ${this.type}`)   
 // }
 
-// let myCamera = new Photo('Camera', 'DSLR', 'Top');
 // let myDigital = new Digital('Camera');
-// myCamera.showStatus()
-// _____________________________________________ 
+// // console.table(myDigital)
+// // myDigital.showInfo()
 
-class Animal {
-   constructor(predator, herbivores) {
-      this.type = predator;
-   }
-}
+// let myCamera = new Photo('Camera', 'DSLR', 'Top');
+// // console.table(myCamera)
+// // myCamera.showInfo()
+// // myCamera.showStatus()
+// // _____________________________________________ 
 
-class Cat extends Animal {
-   constructor(type, kind, name, age) {
-      super(type);
-      this.kind = kind;
-      this.name = name;
-      this.age = age;
-   }
-}
+// class Animal {
+//    constructor(predator, herbivores) {
+//       this.type = predator;
+//    }
+// }
 
-class Dog extends Animal {
-   constructor(type, kind, name, age) {
-      super(type);
-      this.kind = kind;
-      this.name = name;
-      this.age = age;
-   }
-}
+// class Cat extends Animal {
+//    constructor(type, kind, name, age) {
+//       super(type);
+//       this.kind = kind;
+//       this.name = name;
+//       this.age = age;
+//    }
+// }
 
-class Cow extends Animal {
-   constructor(type, kind, name, age) {
-      super(type);
-      this.kind = kind;
-      this.name = name;
-      this.age = age;
-   }
-}
+// class Dog extends Animal {
+//    constructor(type, kind, name, age) {
+//       super(type);
+//       this.kind = kind;
+//       this.name = name;
+//       this.age = age;
+//    }
+// }
 
-let cat = new Cat('Хищник', 'Кот', 'Барсик', 5)
-let dog = new Dog('Хищник', 'Собака', 'Бим', 8)
-let cow = new Cow('Травоядная', 'Корова', 'Савушка', 14)
-console.table(`cat, dog, cow`, cat, dog, cow)
+// class Cow extends Animal {
+//    constructor(type, kind, name, age) {
+//       super(type);
+//       this.kind = kind;
+//       this.name = name;
+//       this.age = age;
+//    }
+// }
+
+// let cat = new Cat('Хищник', 'Кот', 'Барсик', 5)
+// let dog = new Dog('Хищник', 'Собака', 'Бим', 8)
+// let cow = new Cow('Травоядная', 'Корова', 'Савушка', 14)
+// //console.log(cat, dog, cow)
+
 
 // Animal.prototype.createAgeCount = function() { /* Нужно подумать, а не дбавить ли в прототип КЛАССА функцию?? */
 //    for (var prop in this) {
@@ -113,15 +123,16 @@ console.table(`cat, dog, cow`, cat, dog, cow)
 
 // function massive(...args) { // args — имя массива
 //    let sum = 0;
-//    for (let arg of args) sum += arg;
+//    for (let arg of args) 
+//    sum += arg;
 //    return sum;
 // }
 
 // let xxx = massive(cat.createAgeCount(), dog.createAgeCount(), cow.createAgeCount())
-// l(xxx)
+// // l(xxx)
 
 
-// .2 Работник (Worker) _________________________________________________________
+// // .2 Работник (Worker) _________________________________________________________
 // class Worker {
 //    constructor(name, surname, rate, days) {
 //       this.name = name,
@@ -139,6 +150,7 @@ console.table(`cat, dog, cow`, cat, dog, cow)
 // }
 
 // const worker = new Worker('Vadim', 'Skvosnickiy', 21, 35);
+// // console.log(worker)
 
 // class Boss extends Worker {
 //    constructor(name, surname, rate, days, workers) {
@@ -162,49 +174,48 @@ console.table(`cat, dog, cow`, cat, dog, cow)
 // }
 // const hardworker = new HardWorker('Max', 'Bern', 21, 45, 41)
 // l(hardworker)
-
 // hardworker.getFullName()
 // hardworker.getSalary()
 
 
-// // const hardworker = {
-// //    name: 'Jax',
-// //    surname: 'Valiant',
-// //    days: 25,
-// //    rate: 45,
-// // }
+// const hardworker2 = {
+//    name: 'Jax',
+//    surname: 'Valiant',
+//    days: 25,
+//    rate: 45,
+// }
 
 
-// // worker.getFullName.bind(hardworker)()
-// // worker.getSalary.bind(hardworker)()
+// worker.getFullName.bind(hardworker2)()
+// worker.getSalary.bind(hardworker2)()
 
 // .3 MyString _________________________________________________________
 
-class MyString {
-   constructor() {
+// class MyString {
+//    constructor() {
 
-   }
-}
-MyString.prototype.reverse = function(string) {
-  return string.split('').reverse().join('');
-}
-MyString.prototype.ucFirst = function(string) {
-   return string[0].toUpperCase() + string.slice(1);
-}
-MyString.prototype.ucWords = function(string) {
-   return string.toLowerCase().split(' ')   
-   .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-   .join(' ');
-};
+//    }
+// }
+// MyString.prototype.reverse = function(string) {
+//   return string.split('').reverse().join('');
+// }
+// MyString.prototype.ucFirst = function(string) {
+//    return string[0].toUpperCase() + string.slice(1);
+// }
+// MyString.prototype.ucWords = function(string) {
+//    return string.toLowerCase().split(' ')   
+//    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+//    .join(' ');
+// };
 
-let str = new MyString()
-l(str.reverse('abcde'))
-l(str.ucWords('abc abcd abcde'))
-l(str.ucFirst('abcde'))
+// let str = new MyString()
+// l(str.reverse('abcde'))
+// l(str.ucWords('abc abcd abcde'))
+// l(str.ucFirst('abcde'))
 
 // // .3 Validator _________________________________________________________
 
-// class Validator {
+class Validator {
 //    constructor() {
 
 //    }

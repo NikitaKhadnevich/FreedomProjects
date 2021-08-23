@@ -1,8 +1,5 @@
 // import Client from './indexClient'
 
-// l = (result) => {
-//     console.log(result);
-// }
 const client = new Client();
 console.log(client)
 
