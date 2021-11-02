@@ -592,7 +592,6 @@ for (var i = 0; i < 10; i++) {
         console.log(counter, date.getMilliseconds(0, 0, 01));
         }
     });           
-                 
-                 
+  console.log('hello')      
   setTimeout(clo(i), (i+1)*1000);
 }
