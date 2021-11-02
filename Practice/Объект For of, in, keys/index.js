@@ -6,34 +6,34 @@ l = (result) => {
 // ____________________________________________________________________________
 // 1.
 
-//FOR IN - Проходит по объекту и выводит ЗНАЧЕНИЕ объекта
-// const obj = {
-//    a: 1,
-//    b: 2,
-//    c: 'Max'
-// }
+// FOR IN - Проходит по объекту и выводит ЗНАЧЕНИЕ объекта
+const obj = {
+   a: 1,
+   b: 2,
+   c: 'Max'
+}
 
-// const addArr = () => {
-// let wantArr = []
-//    for (let index in obj) {
-//       console.log(obj[index]) // 1, 2, "Max"
-//       wantArr.push(obj[index])
-//    }
-//    console.log('wantArr',  wantArr)
-//    return wantArr
-// }
+const addArr = () => {
+let wantArr = []
+   for (let index in obj) {
+      console.log([index]) // 1, 2, "Max"
+      wantArr.push(obj[index])
+   }
+   console.log(wantArr)
+   return wantArr
+}
 // addArr()
 
-// const easyArr = Object.values(obj)
-// console.log(`easyArr`, easyArr) // Так это можно сделать через Object values
+const easyArr = Object.values(obj)
+// console.log(easyArr) // Так это можно сделать через Object values
 
 
-//_________________________________________________________
-//FOR OF - Проходит по MACCBУ/СТРОКЕ и выводит ЗНАЧЕНИЕ элемента
-// let arr = [1, 2, 55];
-//    for (const index of arr) {
-//       console.log(index)
-//    }
+// _________________________________________________________
+// FOR OF - Проходит по MACCBУ/СТРОКЕ и выводит ЗНАЧЕНИЕ элемента
+let arr = [1, 2, 55];
+   for (const index of arr) {
+      // console.log(index)
+   }
 
 
 //Задачи
@@ -60,7 +60,7 @@ function getSumSalaries (obj, arr) {
       }
 
       arr.forEach(function (item, i) {
-         sum += arr[i]
+         sum += item
          return sum
       });
    return sum   
@@ -100,21 +100,21 @@ l(xxx)
 
 // ____________________________________________________________________________
 // 2.
-// let menu = {
-//    width: 200,
-//    height: 300,
-//    title: "My menu"
-// };
+let menu = {
+   width: 200,
+   height: 300,
+   title: "My menu"
+};
 
-// function getMultiPl(object) {
-//    for (let key2 in object)
-//       if (typeof object[key2] == 'number') {
-//          object[key2] = object[key2]*2
-//          // l(object)
-//       }
-// }
-// getMultiPl(menu)
-// l(menu)
+function getMultiPl(object) {
+   for (let key2 in object)
+      if (typeof object[key2] == 'number') {
+         object[key2] = object[key2]*2
+         // l(object)
+      }
+}
+getMultiPl(menu)
+l(menu)
 // ____________________________________________________________________________
 // 3.
 // let count = 0;

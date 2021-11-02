@@ -4,55 +4,55 @@ const l = (result) => {
 
 const reqURL = `https://jsonplaceholder.typicode.com/users` // Задаем URL API
 
-// // const xhr = new XMLHttpRequest()  // Создаем запрос
-// // xhr.open ('GET', reqURL) // Открываем шлюз
-// // xhr.send() //отправляем запрос
-// // xhr.onload = function() {
-// //    if (xhr.staus >= 400) {   // Прописываем обработчик ошибок доступа(отсутствие пользователя, поля)
-// //       console.error(xhr.response)
-// //    } else {
-// //       l(xhr.response) // Прогружаем ответ в строчном виде
-// //    }
-// // }
-// // xhr.responseType = 'json' // Парсим в JSON
-// // xhr.onerror = function() { // Прописываем обработчик ошибок именно NETWORK
-// //    console.log(xhr.response)
-// // }
+// const xhr = new XMLHttpRequest()  // Создаем запрос
+// xhr.open ('GET', reqURL) // Открываем шлюз
+// xhr.send() //отправляем запрос
+// xhr.onload = function() {
+//    if (xhr.staus >= 400) {   // Прописываем обработчик ошибок доступа(отсутствие пользователя, поля)
+//       console.error(xhr.response)
+//    } else {
+//       l(xhr.response) // Прогружаем ответ в строчном виде
+//    }
+// }
+// xhr.responseType = 'json' // Парсим в JSON
+// xhr.onerror = function() { // Прописываем обработчик ошибок именно NETWORK
+//    console.log(xhr.response)
+// }
 
 // // Тоже самое на Promise
 // // ____________________________
 
 
-// // function sendReq (metod, url) {
-// //    return new Promise((resolve, reject) => {
-// //       const xhr = new XMLHttpRequest()
-// //       xhr.open(metod, url)
-// //       xhr.response = 'json'
-// //       xhr.onload = function() {
-// //          if (xhr.status >= 400) {
-// //             reject(xhr.response)
-// //          } else {
-// //             resolve(xhr.response)
-// //          }
-// //       }   
-// //       xhr.onerror = function() {
-// //          reject(console.log('Ошибка, запрос не отработан'))
-// //       }
-// //       xhr.send()
-// //    })
-// // }
-// // sendReq('GET', reqURL)
-// //    .then(data => l(data))
-// //    .catch( err => l(err))
+// function sendReq (metod, url) {
+//    return new Promise((resolve, reject) => {
+//       const xhr = new XMLHttpRequest()
+//       xhr.open(metod, url)
+//       xhr.response = 'json'
+//       xhr.onload = function() {
+//          if (xhr.status >= 400) {
+//             reject(xhr.response)
+//          } else {
+//             resolve(xhr.response)
+//          }
+//       }   
+//       xhr.onerror = function() {
+//          reject(console.log('Ошибка, запрос не отработан'))
+//       }
+//       xhr.send()
+//    })
+// }
+// sendReq('GET', reqURL)
+//    .then(data => l(data))
+//    .catch( err => l(err))
 
 // // Метод POST 
 // // ____________________________
 
-// // const body = {
-// //    name: 'Nikifor',
-// //    age: 34,
-// //    weight: 76,
-// // }
+const body = {
+   name: 'Nikifor',
+   age: 34,
+   weight: 76,
+}
 
 // function sendReq (metod, url, body = null) { // Добавим само ТЕЛО метода POST
 //    return new Promise((resolve, reject) => {
@@ -79,7 +79,7 @@ const reqURL = `https://jsonplaceholder.typicode.com/users` // Задаем URL 
 
 // FETCH 
 // ____________________________
-// get -  запрос
+//get -  запрос
 // function sendReq (metod, url) {
 //    return fetch(url) //  Возвращаем урлу
 //    .then(response => {
@@ -166,18 +166,14 @@ let arr = [
    'https://evodoor.ru/wp-content/uploads/2019/02/img_507427-768x816.png'
 ]
 
-function chec() {
-   let count = 0
-   return function () {
-      return arr[count++]
-   }
-}
-let x = chec()
+// function chec() {
+//    let count = 0
+//    return function () {
+//       return arr[count++]
+//    }
+// }
+// let x = chec()
 
-function render(element) {
-   let container = document.querySelector('.container');
-   container.innerHTML = element;
-}
 
 async function getUsers() {
    try {
@@ -189,7 +185,6 @@ async function getUsers() {
    }
 }  
 //  
-
 
 async function getFetch() {
    let users = await getUsers()
@@ -209,6 +204,12 @@ async function getFetch() {
    });
 }
 getFetch()
-// Разобраться с ошибками!!ы
+
+function render(element) {
+   let container = document.querySelector('.container');
+   container.innerHTML = element;
+}
+
+// // Разобраться с ошибками!!ы
 
 

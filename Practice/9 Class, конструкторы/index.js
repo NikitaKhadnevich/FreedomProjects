@@ -4,13 +4,12 @@ l = (result) => {
 
 // 2. ______________________________________________________________________________
 // Классический способ написания
-let max = {
-   name: 222,
-   foo() {
-      l(this.name)
-   }
-}
-
+// let max = {
+//    name: 222,
+//    foo() {
+//       l(this.name)
+//    }
+// }
 // function Digital(type) {
 //    this.type = type
 // }
@@ -19,9 +18,11 @@ let max = {
 //    Digital.apply(this, arguments);
 //    this.mirror = mirror;
 // }
+
 // Photo.prototype.showInfo = function() { // Добавляю метод
 //    l(`Это ${this.type} и она ${this.mirror}`)
 // }
+
 // const motherPhoto = new Photo('non mirror', 'less mirror'); // Вывожу объект
 // console.log(motherPhoto)
 // motherPhoto.showInfo()
@@ -216,50 +217,49 @@ let max = {
 // // .3 Validator _________________________________________________________
 
 class Validator {
-//    constructor() {
+   constructor() {
+   }
+}
 
-//    }
-// }
+Validator.prototype.isEmail = function(str) {
+   if (str.includes('@')
+   && str.includes('.')
+   && str[0] != ('.') && ('@')
+   && str[str.length-1] != ('.') && ('@')) {
+      return true
+   }
+   else {
+      return false
+   }
+}
 
-// Validator.prototype.isEmail = function(str) {
-//    if (str.includes('@')
-//    && str.includes('.')
-//    && str[0] != ('.') && ('@')
-//    && str[str.length-1] != ('.') && ('@')) {
-//       return true
-//    }
-//    else {
-//       return false
-//    }
-// }
+Validator.prototype.isDomain = function(str) {
+   let arr = str.split('.')
+   return arr[arr.length - 1]
+}
 
-// Validator.prototype.isDomain = function(str) {
-//    let arr = str.split('.')
-//    return arr[arr.length - 1]
-// }
+Validator.prototype.isDate = function(str) {
+   var now = new Date();
+   return now.toLocaleDateString()
+}
 
-// Validator.prototype.isDate = function(str) {
-//    var now = new Date();
-//    return now.toLocaleDateString()
-// }
+Validator.prototype.isPhone = function(str) {
+   let arr = str.split(' ');
 
-// Validator.prototype.isPhone = function(str) {
-//    let arr = str.split(' ');
+   if (
+   arr[0].substring(0).includes('+') &&
+   arr[1].substring(0).includes('(') &&
+   arr[1].substring(arr.length).includes(')') &&
+   arr[2].replace(/[^0-9]/g, '').length > 2)
+   {
+      l('Number is correct')
+   } else {
+      l('Enter correct type Number!')
+   }
+}
 
-//    if (
-//    arr[0].substring(0).includes('+') &&
-//    arr[1].substring(0).includes('(') &&
-//    arr[1].substring(arr.length).includes(')') &&
-//    arr[2].replace(/[^0-9]/g, '').length > 2)
-//    {
-//       l('Number is correct')
-//    } else {
-//       l('Enter correct type Number!')
-//    }
-// }
-
-// let valid = new Validator
-// valid.isPhone('+375 (29) 154-23-45')
+let valid = new Validator
+valid.isPhone('+375 (29) 154-23-45')
 // let a, b, c, x, y, z;
 
 // [a, b] = [c] = [1, 2, 3, 4];
@@ -267,3 +267,4 @@ class Validator {
 
 // console.log(a, b, c); // 1 2 1
 // console.log(x, y, z); // 4 5 6
+

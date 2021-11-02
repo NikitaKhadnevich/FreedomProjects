@@ -80,7 +80,7 @@ render()
 
 function createInitSlider() {
 	const incrCount = document.getElementById('incrementCount');
-   const decrCount = document.getElementById('decrementCount');
+  const decrCount = document.getElementById('decrementCount');
 
 	incrCount.addEventListener('click', incrementCount);
 	decrCount.addEventListener('click', decrementCount);

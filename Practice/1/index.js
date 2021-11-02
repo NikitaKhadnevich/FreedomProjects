@@ -5,7 +5,7 @@
 // }
 // getMult(2,5);
 // // ___________________________________________________________
-const log = (result) => console.log(result)
+//const log = (result) => console.log(result)
 // // 2.
 // createIvan = (frstname, secondname, age) => {
 // return console.log(`Привет ${frstname} ${secondname} ? Возрастом ${age} лет.`)
@@ -112,41 +112,85 @@ const log = (result) => console.log(result)
 // ___________________________________________________________
 // 7 - 8.
 
-let arr = [];
+// let arr = [];
 
-function filterArgs(arrg, elem) {
-   while (arrg.length < 100) {
-      arrg.push(++elem)
-   }
-   arrg.forEach(function (item, i) {
-      function addSomeAge(child, young, strong, old) {
-         if (arr[i] < 18 && arr[i] > 0) {
-            arr[i] = arr[i] + child;
-         }
-         if (arr[i] <= 30 && arr[i] >= 18) {
-            arr[i] = arr[i] + young;
-         }
-         if (arr[i] < 55 && arr[i] > 30) {
-            arr[i] = arr[i] + strong;
-         }
-         if (arr[i] > 50) {
-            arr[i] = arr[i] + old;
-         }
-      };
-      addSomeAge(' юный', ' молоой', ' взрослый', ' Pazhiloy Pavuk')
-   });
-}
+// function filterArgs(arrg, elem) {
+//    while (arrg.length < 100) {
+//       arrg.push(++elem)
+//    }
+//    arrg.forEach(function (item, i) {
+//       function addSomeAge(child, young, strong, old) {
+//          if (arr[i] < 18 && arr[i] > 0) {
+//             arr[i] = arr[i] + child;
+//          }
+//          if (arr[i] <= 30 && arr[i] >= 18) {
+//             arr[i] = arr[i] + young;
+//          }
+//          if (arr[i] < 55 && arr[i] > 30) {
+//             arr[i] = arr[i] + strong;
+//          }
+//          if (arr[i] > 50) {
+//             arr[i] = arr[i] + old;
+//          }
+//       };
+//       addSomeAge(' юный', ' молоой', ' взрослый', ' Pazhiloy Pavuk')
+//    });
+// }
+
+// // ___________________________________________________________
+// // 8.
+// function getNames(name, age, arr) {
+//    filterArgs(arr, 0);
+//    log(arr)
+//    arr.forEach(function (elem = '', i) {
+//       arr[i];
+//       if (age === i) {
+//          console.log(`${name} имеет возраст ${age}, и он ${arr[i].replace(/[^a-zа-яё]/gi, '')}.`)
+//       }
+//    });
+// }
+// getNames('Max', 45, arr)
 
 // ___________________________________________________________
-// 8.
-function getNames(name, age, arr) {
-   filterArgs(arr, 0);
-   log(arr)
-   arr.forEach(function (elem = '', i) {
-      arr[i];
-      if (age === i) {
-         console.log(`${name} имеет возраст ${age}, и он ${arr[i].replace(/[^a-zа-яё]/gi, '')}.`)
-      }
-   });
+
+// const pool = [2,15,9,2,10,5]
+
+// function calcMaxV(arr) {
+//    /* тут задаем переменные для расчетов */
+//    let maxV = 0;
+//    let left = 0;
+//    let right = arr.length - 1
+
+
+//    /* заводим цикл с проверкой скчков по масиву */
+//    while (left < right) {
+//       /* вычисляем:
+//       - минимальный элемент
+//       - расстояние */
+//       let currentVolume = Math.min(arr[left], arr[right]) * (right -  left);
+
+//       /* Проверяем что больше и заносим в переменную */
+//       maxV = Math.max(maxV, currentVolume);
+//       console.log(`maxV`, maxV)
+
+//       /* Идет проверка с какого края брать минус 1 - там где меньшее значение то и логично его перескочить */
+//       if (arr[left] < arr[right]) {
+//          left++
+//       } else {
+//          right--
+//       }
+//    }
+//    return maxV 
+// }
+// console.log(calcMaxV(pool))
+
+let button = document.getElementById('button');
+const depend = document.getElementById('depend'); 
+console.log(button)
+
+
+function onChange(e) {
+   console.log(e.target.value)
 }
-getNames('Max', 45, arr)
+
+main.addEventListener('keyup', onChange);

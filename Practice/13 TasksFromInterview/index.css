@@ -1,0 +1,33 @@
+
+/* 1 Задача */
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.red {
+   color: red;
+   font-size: 13px;
+}
+
+.gray {
+   color: gray;
+   font-size: 29px;
+} /* В нашем случае это gray */
+
+ul {
+   list-style: none;
+   padding: 0;
+   justify-content: center;
+   margin: 0 auto;
+   width: fit-content; /* подгоняем по ширине */
+   font-size: 0px; /* ЧТобы убрать пробелы у инлине-блока */
+}
+
+li {
+   display: inline-block;
+   background-color: brown;
+   color: rgb(255, 250, 243);
+   font-size: 15px;
+   padding: 5px 20px;
+}
